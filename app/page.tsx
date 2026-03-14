@@ -110,13 +110,15 @@ export default function LoginPage() {
             {/* Header Section */}
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-6">
-                <Image
-                  src="/logo.jpeg"
-                  alt="SENTIENT ROBOTICS Logo"
-                  width={32}
-                  height={32}
-                  className="rounded-lg object-cover shadow-lg shadow-blue-500/20"
-                />
+                <Link href="https://github.com/blackdragonspear62/sentient-robotics.git" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/logo.jpeg"
+                    alt="SENTIENT ROBOTICS Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg object-cover shadow-lg shadow-blue-500/20 transition-transform hover:scale-110"
+                  />
+                </Link>
                 <span className="text-xl font-semibold text-slate-900 tracking-tight">SENTIENT <span className="text-blue-600 font-normal">ROBOTICS</span></span>
                 <span className="ml-auto px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-medium text-blue-400 uppercase tracking-wider">
                   Invite Only
@@ -184,7 +186,7 @@ export default function LoginPage() {
             {/* Social Links - Integrated into card footer */}
             <div className="pt-6 border-t border-slate-100 flex items-center justify-center gap-6">
               <motion.a
-                href="https://github.com/blackdragonspear62/Dimension-Agent.git"
+                href="https://github.com/blackdragonspear62/sentient-robotics.git"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -198,7 +200,7 @@ export default function LoginPage() {
               </motion.a>
 
               <motion.a
-                href="https://x.com/AgentDimension"
+                href="https://x.com/SentientRobot12"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
