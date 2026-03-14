@@ -9,10 +9,10 @@ import { Github, Twitter } from 'lucide-react';
 import { StarsBackground } from '@/components/ui/stars-background';
 
 const TEXT_ITEMS = [
-  "OS for Generalist Robotics",
-  "No ROS Required — Pure Python",
-  "Vibecode in Natural Language",
-  "Native Multi-Agent Systems"
+  "Unified Humanoid Control Platform",
+  "Advanced Whole-Body Controllers",
+  "Natural Walking and Crawling",
+  "Real-time VR Teleoperation"
 ];
 
 export default function LoginPage() {
@@ -85,7 +85,7 @@ export default function LoginPage() {
             </AnimatePresence>
           </div>
           <p className="text-slate-600 text-base max-w-xl">
-            Build physical applications entirely in Python that run on any humanoid, quadruped, or drone. From perception streams to motor drivers, orchestrate multi-agent systems seamlessly.
+            A unified platform for developing and deploying advanced humanoid whole-body controllers. Enable robots to perform natural movements—from walking and crawling to teleoperation and multi-modal control.
           </p>
         </div>
 
@@ -126,7 +126,7 @@ export default function LoginPage() {
               </div>
 
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Secure Your Spot</h2>
-              <p className="text-sm text-slate-600">Join the whitelist to get your exclusive access code for the next generation of generalist robotics OS.</p>
+              <p className="text-sm text-slate-600">Join the whitelist to get your exclusive access code for the advanced humanoid whole-body control platform.</p>
             </div>
 
             {/* Form */}
