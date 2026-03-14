@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow: hidden; /* As per the target site */
+}
+
+/* Custom Cursor Styles */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.cursor-trail {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+/* Spline container fixes */
+canvas {
+  outline: none;
+}
+
+/* Scrollbar styling for the right panel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Halo input effect */
+.halo-input-wrapper {
+  position: relative;
+  border-radius: 0.5rem; /* rounded-lg */
+  background: padding-box linear-gradient(#ffffff, #ffffff),
+              border-box linear-gradient(to right, #e2e8f0, #e2e8f0);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.halo-input-wrapper:focus-within {
+  background: padding-box linear-gradient(#ffffff, #ffffff),
+              border-box linear-gradient(to right, #3b82f6, #8b5cf6);
+  border-color: transparent;
+}
+
+.halo-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Shimmer Button */
+.shimmer-button {
+  background: linear-gradient(to bottom right, #1e293b, #0f172a);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+
+.shimmer-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.shimmer-button:hover::before {
+  left: 100%;
+}
+
+.shimmer-button:hover {
+  border-color: #60a5fa;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
