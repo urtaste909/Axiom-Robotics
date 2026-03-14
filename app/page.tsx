@@ -124,6 +124,9 @@ export default function LoginPage() {
                   Invite Only
                 </span>
               </div>
+              <p className="text-[10px] text-blue-600 font-bold uppercase tracking-widest px-1 py-0.5 rounded bg-blue-50 w-fit mb-4">
+                Advanced Humanoid Whole-Body Control Platform
+              </p>
 
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Secure Your Spot</h2>
               <p className="text-sm text-slate-600">Join the whitelist to get your exclusive access code for the advanced humanoid whole-body control platform.</p>

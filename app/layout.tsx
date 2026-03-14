@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SENTIENT ROBOTICS",
-  description: "Modern OS for Generalist Robotics",
+  description: "Advanced Humanoid Whole-Body Control Platform",
 };
 
 export default function RootLayout({
