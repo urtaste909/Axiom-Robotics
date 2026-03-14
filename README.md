@@ -255,6 +255,7 @@ sentient-robotics/
 
 ### Installation
 
+
 ```bash
 # Clone with Git LFS
 git clone https://github.com/blackdragonspear62/sentient-robotics.git
