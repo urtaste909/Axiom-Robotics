@@ -25,6 +25,16 @@
 
 **Sentient Robotics** is a unified platform for developing and deploying advanced humanoid whole-body controllers. It hosts model checkpoints and scripts for training, evaluating, and deploying controllers that enable humanoid robots to perform natural, whole-body movements — from walking and crawling to teleoperation and multi-modal control.
 
+<div align="center">
+  <table border="0">
+    <tr>
+      <td width="33%"><img src="docs/vid1.gif" alt="Sentient Robotics Demo 1" width="100%"/></td>
+      <td width="33%"><img src="docs/vid2.gif" alt="Sentient Robotics Demo 2" width="100%"/></td>
+      <td width="33%"><img src="docs/vid4.gif" alt="Sentient Robotics Demo 3" width="100%"/></td>
+    </tr>
+  </table>
+</div>
+
 This platform currently supports:
 
 | Module | Description | Status |
