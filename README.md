@@ -1,22 +1,20 @@
 <div align="center">
 
-<img src="media/sentient_robotics_banner.png" alt="Sentient Robotics Banner" width="100%"/>
+<img src="media/logs.jpeg" alt="Phantom Robot Banner" width="100%"/>
 
-# SENTIENT ROBOTICS
+# PHANTOM ROBOT
 
-### Advanced Humanoid Whole-Body Control Platform
-
+### Advanced Two-Wheeled Self-Balancing Autonomous Robot
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB.svg?logo=python&logoColor=white)](https://python.org)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C.svg?logo=cplusplus&logoColor=white)](https://isocpp.org)
-[![ONNX](https://img.shields.io/badge/ONNX-Runtime-005CED.svg?logo=onnx&logoColor=white)](https://onnxruntime.ai)
-[![arXiv](https://img.shields.io/badge/arXiv-2511.07820-b31b1b.svg)](https://arxiv.org/abs/2511.07820)
-[![Docs](https://img.shields.io/badge/Docs-GitHub%20Pages-222222.svg?logo=github)](https://blackdragonspear62.github.io/sentient-robotics)
+[![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E.svg?logo=ros&logoColor=white)](https://docs.ros.org/en/humble/)
+[![Docs](https://img.shields.io/badge/Docs-GitHub%20Pages-222222.svg?logo=github)](https://PhantomRobot.github.io/phantom-robot)
 
-**Unified platform for developing and deploying generalist humanoid whole-body controllers.**
+**A cutting-edge platform demonstrating the seamless integration of physical hardware and Artificial Intelligence through real-time Digital Twin technology.**
 
-[Getting Started](#getting-started) · [Architecture](#system-architecture) · [Sentient-SONIC](#sentient-sonic) · [Scenarios](#scenarios-plot) · [Metrics](#metrics-plot) · [Documentation](#documentation) · [Citation](#citation)
+[Overview](#overview) · [Key Technologies](#key-technologies) · [Physical Design](#physical-design) · [Demos](#demo-videos) · [Scenarios](#scenarios-plot) · [Metrics](#metrics-plot) · [Architecture](#system-architecture) · [Getting Started](#getting-started)
 
 ---
 
@@ -24,181 +22,114 @@
 
 ## Overview
 
-**Sentient Robotics** is a unified platform for developing and deploying advanced humanoid whole-body controllers. It hosts model checkpoints and scripts for training, evaluating, and deploying controllers that enable humanoid robots to perform natural, whole-body movements — from walking and crawling to teleoperation and multi-modal control.
+**Phantom** is an advanced two-wheeled self-balancing autonomous robot designed specifically to showcase the next generation of hardware-AI integration. The core strength of Phantom lies in its ability to navigate complex environments autonomously while simultaneously projecting its entire state and movement into a real-time 3D Digital Twin simulation.
+
+Whether navigating through a cardboard maze or tracking a specific target, Phantom maintains perfect balance while providing operators with an immersive, data-rich monitoring experience.
 
 <div align="center">
-  <table border="0">
-    <tr>
-      <td width="33%"><img src="docs/vid1.gif" alt="Sentient Robotics Demo 1" width="100%"/></td>
-      <td width="33%"><img src="docs/vid2.gif" alt="Sentient Robotics Demo 2" width="100%"/></td>
-      <td width="33%"><img src="docs/vid4.gif" alt="Sentient Robotics Demo 3" width="100%"/></td>
-    </tr>
-  </table>
+  <img src="media/v2.gif" width="45%" align="center" />
+  <img src="media/v1.gif" width="45%" align="center" />
 </div>
 
-This platform currently supports:
+---
 
-| Module | Description | Status |
-|--------|-------------|--------|
-| **Sentient-SONIC** | Generalist humanoid behavior foundation model trained on large-scale human motion data | Active |
-| **Decoupled WBC** | Decoupled controller (RL lower body + IK upper body) used in N1.5 and N1.6 models | Stable |
-| **C++ Deploy Stack** | High-performance ONNX inference runtime for real hardware deployment | Active |
-| **VR Teleoperation** | Real-time whole-body teleoperation via PICO VR headset | Active |
+## Key Technologies & Specifications
+
+Phantom integrates several state-of-the-art robotics and AI technologies into a single cohesive platform:
+
+| Technology | Description |
+|------------|-------------|
+| **Self-Balancing System** | Moves and stands upright using only two wheels with extreme precision. Powered by an advanced control system that continuously calculates and adjusts the robot's center of gravity. |
+| **Real-Time SLAM** | Autonomous mapping and navigation system capable of instantly detecting obstacles (such as maze walls) and generating accurate spatial maps on the fly. |
+| **Intelligent Pathfinding** | Automatically calculates and executes the most efficient route to a target (e.g., a green ball). The planned trajectory is visually represented as yellow dotted lines within the system. |
+| **Digital Twin Integration** | Features a real-time monitoring interface that displays a 3D simulation of both the robot and its physical environment (rendered as white wireframes), allowing for accurate tracking of metrics and paths. |
+| **VR Interaction Support** | Designed to be monitored and interacted with directly by users wearing Virtual Reality (VR) headsets, creating a highly immersive showcase experience. |
 
 ---
 
-## System Architecture
+## Physical Design
 
-```mermaid
-graph TB
-    subgraph "Training Pipeline"
-        MD[("Motion Data<br/>(AMASS / CMU / Custom)")] --> PP["Data Preprocessor<br/><i>sentient_sonic.data</i>"]
-        PP --> RT["Motion Retargeter<br/><i>sentient_sonic.utils</i>"]
-        RT --> ENV["Isaac Gym / Isaac Lab<br/>4096+ Parallel Envs"]
-        ENV --> PPO["PPO Trainer<br/><i>sentient_sonic.core</i>"]
-        PPO --> CKP[("Trained Checkpoint<br/>.pt / .onnx")]
-    end
+The physical construction of Phantom is engineered for both aesthetics and high-performance mobility:
 
-    subgraph "Sentient-SONIC Policy"
-        OBS["Observation Vector<br/>Joint States + IMU + Gravity"] --> TE["Temporal Encoder<br/>1D Conv (history=10)"]
-        TE --> LAT["Latent Space<br/>256-dim"]
-        LAT --> ACT["Actor Head<br/>MLP [512→256→128]"]
-        LAT --> CRT["Critic Head<br/>MLP [512→256→128]"]
-        ACT --> JT["Joint Targets<br/>(23 DOF)"]
-    end
-
-    subgraph "Deployment Runtime (C++)"
-        CKP --> ONNX["ONNX Inference Engine<br/><i>sentient_sonic_deploy</i>"]
-        ONNX --> SAFE["Safety Controller<br/>Multi-level Protection"]
-        SAFE --> CMD["Robot Command<br/>Position + Velocity + Gains"]
-        CMD --> HW["Robot Hardware<br/>Unitree G1 / Fourier GR1"]
-        HW --> SE["State Estimator<br/>EKF (IMU + Contact)"]
-        SE --> OBS
-    end
-
-    subgraph "Teleoperation"
-        VR["PICO VR Headset"] -->|ZMQ 72Hz| ZB["ZMQ Bridge"]
-        KB["Keyboard / Gamepad"] --> ZB
-        ZB --> KP["Kinematic Planner"]
-        KP --> OBS
-    end
-
-    style MD fill:#1a1a2e,stroke:#e94560,color:#fff
-    style CKP fill:#1a1a2e,stroke:#e94560,color:#fff
-    style HW fill:#0f3460,stroke:#e94560,color:#fff
-    style VR fill:#16213e,stroke:#0f3460,color:#fff
-    style ONNX fill:#533483,stroke:#e94560,color:#fff
-    style SAFE fill:#e94560,stroke:#fff,color:#fff
-    style PPO fill:#533483,stroke:#e94560,color:#fff
-    style ENV fill:#0f3460,stroke:#533483,color:#fff
-```
-
-### Decoupled WBC Architecture
-
-```mermaid
-graph LR
-    subgraph "Decoupled Whole-Body Controller"
-        INPUT["Task Command"] --> SPLIT{"Controller<br/>Splitter"}
-        SPLIT -->|Locomotion Cmd| LOWER["Lower Body<br/>RL Policy<br/>(12 joints)"]
-        SPLIT -->|EE Targets| UPPER["Upper Body<br/>IK Solver<br/>(11 joints)"]
-        LOWER --> MERGE["Joint<br/>Merger"]
-        UPPER --> MERGE
-        MERGE --> OUTPUT["Full Body<br/>23 DOF"]
-    end
-
-    style LOWER fill:#533483,stroke:#e94560,color:#fff
-    style UPPER fill:#0f3460,stroke:#533483,color:#fff
-    style MERGE fill:#1a1a2e,stroke:#e94560,color:#fff
-```
+- **Form Factor**: Compact, multi-layer chassis design with an elegant matte black finish.
+- **Mobility**: Features a **zero turning radius** thanks to its two-wheeled differential drive system, allowing it to maneuver effortlessly in extremely tight spaces.
+- **Identity**: Proudly displays a custom "PHANTOM" nameplate mounted on the front/lower section of the chassis.
 
 ---
 
-## Sentient-SONIC
+## Demo Videos
 
-**Sentient-SONIC** is a humanoid behavior foundation model that gives robots a core set of motor skills learned from large-scale human motion data. Rather than building separate controllers for predefined motions, Sentient-SONIC uses motion tracking as a scalable training task, enabling a single unified policy to produce natural, whole-body movement and support a wide range of behaviors.
+Real-world demonstrations of Phantom deployed in various scenarios. These videos showcase the platform's capabilities across different control modalities and environments.
 
-### Capabilities
+### Autonomous Navigation & Balancing
 
-<table>
-<tr>
-<td align="center"><b>Walking</b></td>
-<td align="center"><b>Running</b></td>
-<td align="center"><b>Sideways Movement</b></td>
-<td align="center"><b>Kneeling</b></td>
-</tr>
-<tr>
-<td align="center"><b>Getting Up</b></td>
-<td align="center"><b>Jumping</b></td>
-<td align="center"><b>Bimanual Manipulation</b></td>
-<td align="center"><b>Object Hand-off</b></td>
-</tr>
-</table>
+<div align="center">
+<video src="media/demo_whole_body.mp4" width="80%" controls></video>
+</div>
 
-### Kinematic Planner
+> Demonstration of Phantom's core self-balancing capability while autonomously navigating through a complex environment. The control system maintains perfect stability despite dynamic movements.
 
-Sentient-SONIC includes a kinematic planner for real-time locomotion generation — choose a movement style, steer with keyboard/gamepad, and adjust speed and height on the fly.
+### VR Teleoperation & Digital Twin
 
-| Style | Description |
-|-------|-------------|
-| Walk | Natural bipedal walking |
-| Run | High-speed locomotion |
-| Happy | Expressive joyful movement |
-| Stealth | Low-profile sneaking |
-| Injured | Limping / asymmetric gait |
-| Kneeling | Ground-level locomotion |
-| Hand Crawling | Quadruped-style crawling |
-| Elbow Crawling | Military-style low crawl |
-| Boxing | Combat-ready stance and movement |
+<div align="center">
+<video src="media/demo_teleop_vr.mp4" width="80%" controls></video>
+</div>
 
-### VR Whole-Body Teleoperation
+> Real-time interaction via VR headset. The operator can view the 3D Digital Twin environment and control the robot with sub-100ms latency, enabling intuitive and immersive teleoperation.
 
-Sentient-SONIC supports real-time whole-body teleoperation via PICO VR headset, enabling natural human-to-robot motion transfer for data collection and interactive control.
+### Pathfinding & Target Tracking
+
+<div align="center">
+<video src="media/demo_walking_control.mp4" width="80%" controls></video>
+</div>
+
+> Phantom executing intelligent pathfinding to reach a designated target. The system dynamically recalculates the optimal route while avoiding newly introduced obstacles.
 
 ---
 
 ## Scenarios Plot
 
-The following 3D trajectory plots show reference motion clips (blue) versus Sentient-SONIC policy output (red) across different locomotion scenarios. Start and end points are annotated with coordinates.
+The following 3D trajectory plots visualize Phantom's planned path (blue) versus actual executed path (red) across different navigation scenarios. Start and end points are annotated with coordinates.
 
-### Walking Trajectory
-
-<div align="center">
-<img src="media/trajectory_walking.png" alt="Walking Trajectory — Reference vs Policy" width="80%"/>
-</div>
-
-> Natural bipedal walking with sinusoidal lateral sway. The policy closely tracks the reference trajectory with minimal drift across 3.77 m of forward locomotion.
-
-### Running Trajectory
+### Maze Navigation Trajectory
 
 <div align="center">
-<img src="media/trajectory_running.png" alt="Running Trajectory — Reference vs Policy" width="80%"/>
+<img src="media/trajectory_walking.png" alt="Maze Navigation Trajectory — Planned vs Actual" width="80%"/>
 </div>
 
-> High-speed running with increased foot clearance and larger stride length. The policy maintains tracking fidelity even at elevated velocities over 11+ meters.
+> Phantom navigating through a cardboard maze. The planned path closely matches the executed trajectory with minimal drift across 3.77 m of forward travel.
 
-### Kneeling-to-Standing Transition
+### High-Speed Obstacle Avoidance
 
 <div align="center">
-<img src="media/trajectory_kneeling.png" alt="Kneeling Trajectory — Reference vs Policy" width="80%"/>
+<img src="media/trajectory_running.png" alt="High-Speed Obstacle Avoidance Trajectory" width="80%"/>
 </div>
 
-> Vertical center-of-mass trajectory during kneeling-to-standing transitions. The policy accurately reproduces the height profile with minimal XY drift.
+> High-speed navigation with dynamic obstacle avoidance. The pathfinding engine recalculates routes in real-time while maintaining tracking fidelity over 11+ meters.
+
+### Vertical Stability During Transitions
+
+<div align="center">
+<img src="media/trajectory_kneeling.png" alt="Vertical Stability Trajectory" width="80%"/>
+</div>
+
+> Vertical center-of-mass trajectory during speed transitions (stop-to-move and move-to-stop). The balancing controller accurately maintains height stability with minimal Z-axis drift.
 
 ---
 
 ## Metrics Plot
 
-Detailed performance metrics from policy evaluation on held-out motion clips.
+Detailed performance metrics from Phantom's control system evaluation across multiple test runs.
 
-### Joint Tracking Error
+### Position Tracking Error
 
 <div align="center">
-<img src="media/metrics_tracking_error.png" alt="Joint Tracking Error" width="90%"/>
+<img src="media/metrics_tracking_error.png" alt="Position Tracking Error" width="90%"/>
 </div>
 
-> Position and velocity tracking errors converge to near-zero within the first 5 seconds of each episode, demonstrating rapid adaptation and stable control.
+> Position and velocity tracking errors converge to near-zero within the first 5 seconds of each run, demonstrating rapid adaptation and stable control.
 
-### Base Angular Velocity & CoM Height
+### Angular Velocity & Center of Mass Height
 
 <div align="center">
 <img src="media/metrics_angular_velocity.png" alt="Angular Velocity and CoM Height" width="90%"/>
@@ -212,43 +143,70 @@ Detailed performance metrics from policy evaluation on held-out motion clips.
 <img src="media/metrics_reward_curves.png" alt="Training Reward Curves" width="90%"/>
 </div>
 
-> Reward components during Sentient-SONIC Base training. Total reward saturates around 0.85, with position tracking contributing the largest share.
+> Reward components during balancing policy training. Total reward saturates around 0.85, with position tracking contributing the largest share.
 
-### Benchmark: Success Rate by Motion Style
+### Benchmark: Success Rate by Navigation Scenario
 
 <div align="center">
 <img src="media/benchmark_success_rate.png" alt="Benchmark Success Rate" width="90%"/>
 </div>
 
-> Sentient-SONIC consistently outperforms the Decoupled WBC baseline across all 11 motion styles, achieving 97.2% on walking and maintaining >70% even on challenging motions like jumping.
+> Phantom's AI navigation stack consistently outperforms the baseline controller across all 11 test scenarios, achieving 97.2% on standard maze navigation and maintaining >70% even on challenging dynamic obstacle courses.
+
+---
+
+## System Architecture
+
+```mermaid
+graph TB
+    subgraph "Physical Robot (Phantom)"
+        HW["Hardware Chassis<br/>Two-Wheel Drive"] --> SENS["Sensors<br/>IMU + LiDAR + Camera"]
+        SENS --> CTRL["Balancing Controller<br/>PID / LQR"]
+        CTRL --> MOT["Motor Drivers"]
+    end
+
+    subgraph "AI & Navigation Stack"
+        SENS --> SLAM["Real-Time SLAM<br/>Mapping & Localization"]
+        SLAM --> PATH["Pathfinding Engine<br/>A* / DWA"]
+        PATH --> CTRL
+    end
+
+    subgraph "Digital Twin & UI"
+        SLAM --> DT["3D Digital Twin<br/>Environment Sync"]
+        PATH --> DT
+        CTRL --> DT
+        DT --> VR["VR Headset<br/>Immersive Monitoring"]
+        DT --> DASH["Web Dashboard<br/>Metrics & Wireframes"]
+    end
+
+    style HW fill:#1a1a2e,stroke:#e94560,color:#fff
+    style CTRL fill:#533483,stroke:#e94560,color:#fff
+    style SLAM fill:#0f3460,stroke:#533483,color:#fff
+    style DT fill:#e94560,stroke:#fff,color:#fff
+    style VR fill:#16213e,stroke:#0f3460,color:#fff
+```
 
 ---
 
 ## What's Included
 
 ```
-sentient-robotics/
-├── sentient_sonic/              # Sentient-SONIC Python package
-│   ├── core/                    #   Policy, network, trainer, reward, config
+phantom-robot/
+├── phantom_sonic/              # Core Python package for AI and control
+│   ├── core/                    #   Balancing policy, network, config
 │   ├── teleop/                  #   VR, keyboard, gamepad controllers
-│   ├── utils/                   #   Transforms, ZMQ, robot defs, retargeting
-│   ├── configs/                 #   Training, deployment, teleop YAML configs
-│   └── data/                    #   Data preprocessing and loading
-├── sentient_sonic_deploy/       # C++ deployment stack
-│   ├── include/sentient_sonic/  #   Header files (inference, safety, robot, state)
+│   ├── utils/                   #   Transforms, ZMQ, robot definitions
+│   └── configs/                 #   Deployment and teleop YAML configs
+├── phantom_sonic_deploy/       # C++ deployment stack for real-time control
+│   ├── include/phantom_sonic/  #   Header files (inference, safety, state)
 │   ├── src/                     #   Implementation files
 │   └── CMakeLists.txt           #   Build configuration
-├── decoupled_wbc/               # Decoupled WBC (RL lower + IK upper)
-├── docs/                        # Full documentation (13 pages)
-├── tests/                       # Comprehensive test suite (8 test files)
-├── external_dependencies/       # Dependency build scripts
-├── install_scripts/             # Installation helpers
-├── legal/                       # License, NOTICE, third-party attributions
-├── media/                       # Visual assets and demos
+├── docs/                        # Full documentation
+├── tests/                       # Comprehensive test suite
+├── media/                       # Visual assets and demo videos
 ├── pyproject.toml               # Python package configuration
 ├── Makefile                     # Build system entry point
-├── CITATION.cff                 # Citation metadata
-└── LICENSE                      # Dual license (Apache 2.0 + NVIDIA OML)
+└── LICENSE                      # Apache 2.0 License
 ```
 
 ---
@@ -260,155 +218,61 @@ sentient-robotics/
 | Requirement | Version |
 |-------------|---------|
 | Python | 3.8+ |
-| CUDA | 11.8+ (GPU training only) |
-| Git LFS | Latest |
+| ROS2 | Humble (Recommended) |
 | CMake | 3.16+ (C++ deployment only) |
 
 ### Installation
 
-
 ```bash
-# Clone with Git LFS
-git clone https://github.com/blackdragonspear62/sentient-robotics.git
-cd sentient-robotics
-git lfs pull
+# Clone the repository
+git clone https://github.com/PhantomRobot/phantom-robot.git
+cd phantom-robot
 
 # Install Python package
 pip install -e .
 
-# With all optional dependencies
+# With all optional dependencies (VR, UI)
 pip install -e ".[dev,deploy,teleop]"
 ```
 
 ### Quick Start
 
 ```python
-from sentient_sonic import SonicPolicy, SonicConfig
+from phantom_sonic import PhantomController, PhantomConfig
 
-# Configure and load policy
-config = SonicConfig(model_name="sentient-sonic-base", device="cuda:0")
-policy = SonicPolicy(config=config, checkpoint_path="checkpoints/sentient-sonic-base/policy.pt")
-policy.load()
+# Configure and load the balancing policy
+config = PhantomConfig(mode="autonomous", enable_digital_twin=True)
+robot = PhantomController(config=config)
+robot.initialize()
 
-# Run inference
-observation = get_robot_observation()  # Your robot state
-output = policy.infer(observation)
-send_to_robot(output.joint_positions)  # Send to hardware
-```
+# Start the main control loop
+robot.start_balancing()
+robot.enable_slam()
 
-### Deploy on Real Hardware
-
-```bash
-# Build C++ deployment stack
-cd sentient_sonic_deploy && mkdir build && cd build
-cmake .. -DONNXRUNTIME_ROOT=/opt/onnxruntime
-make -j$(nproc)
-
-# Deploy on Unitree G1
-./sentient_deploy checkpoints/policy.onnx 192.168.1.100 8080
-```
-
-### Download Pretrained Checkpoints
-
-```bash
-python download_from_hf.py --model sentient-sonic-base
-```
-
----
-
-## Roadmap
-
-- [x] Release pretrained Sentient-SONIC policy checkpoints
-- [x] Open source C++ inference stack
-- [x] Setup documentation
-- [x] Open source teleoperation stack and demonstration scripts
-- [ ] Release training scripts and recipes for motion imitation and fine-tuning
-- [ ] Open source large-scale data collection workflows and fine-tuning VLA scripts
-- [ ] Publish additional preprocessed large-scale human motion datasets
-
----
-
-## Documentation
-
-### Getting Started
-
-| Guide | Description |
-|-------|-------------|
-| [Installation Guide](docs/installation.md) | Setup and installation instructions |
-| [Quick Start](docs/quickstart.md) | Get running in 5 minutes |
-| [VR Teleoperation Setup](docs/vr_teleop.md) | PICO VR configuration |
-
-### Tutorials
-
-| Tutorial | Description |
-|----------|-------------|
-| [Keyboard Control](docs/keyboard_control.md) | Control humanoid with keyboard |
-| [Gamepad Control](docs/gamepad_control.md) | Control humanoid with gamepad |
-| [ZMQ Communication](docs/zmq_comm.md) | Inter-process communication setup |
-| [Deployment Guide](docs/deployment.md) | Deploy on real hardware |
-| [Training Guide](docs/training.md) | Train your own policy |
-
-### Reference
-
-| Document | Description |
-|----------|-------------|
-| [SONIC Overview](docs/sonic_overview.md) | Architecture and design |
-| [Decoupled WBC](docs/decoupled_wbc.md) | Decoupled controller docs |
-| [API Reference](docs/api_reference.md) | Full API documentation |
-
----
-
-## Citation
-
-If you use Sentient-SONIC in your research, please cite:
-
-```bibtex
-@article{luo2025sonic,
-    title={SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control},
-    author={Luo, Zhengyi and Yuan, Ye and Wang, Tingwu and Li, Chenran and Chen, Sirui and Casta\~neda, Fernando and Cao, Zi-Ang and Li, Jiefeng and Minor, David and Ben, Qingwei and Da, Xingye and Ding, Runyu and Hogg, Cyrus and Song, Lina and Lim, Edy and Jeong, Eugene and He, Tairan and Xue, Haoru and Xiao, Wenli and Wang, Zi and Yuen, Simon and Kautz, Jan and Chang, Yan and Iqbal, Umar and Fan, Linxi and Zhu, Yuke},
-    journal={arXiv preprint arXiv:2511.07820},
-    year={2025}
-}
+# Set a target for pathfinding
+robot.navigate_to(target_x=2.5, target_y=1.0)
 ```
 
 ---
 
 ## License
 
-This project uses dual licensing:
+This project is licensed under the [Apache License 2.0](LICENSE).
 
-| Component | License |
-|-----------|---------|
-| **Source Code** | [Apache License 2.0](LICENSE) |
-| **Model Weights** | [NVIDIA Open Model License](LICENSE) |
-
-Please review both licenses before using this project. The NVIDIA Open Model License permits commercial use with attribution and requires compliance with NVIDIA's Trustworthy AI terms.
-
-All required legal documents, including the Apache 2.0 license, 3rd-party attributions, and DCO language, are consolidated in the [`/legal`](legal/) folder.
+All required legal documents, including 3rd-party attributions and DCO language, are consolidated in the [`/legal`](legal/) folder.
 
 ---
 
 ## Support
 
-For questions and issues, please [open an issue](https://github.com/blackdragonspear62/sentient-robotics/issues) or contact the Sentient Robotics team.
-
----
-
-## Acknowledgments
-
-This project is built upon the foundational work of [GR00T-WholeBodyControl](https://github.com/NVlabs/GR00T-WholeBodyControl) by NVIDIA (NVlabs), licensed under Apache 2.0. We gratefully acknowledge their contributions to the humanoid robotics community.
-
-We would also like to acknowledge the following projects from which parts of the code are derived:
-
-- [Beyond Mimic](https://github.com/blackdragonspear62/PHC)
-- [Isaac Lab](https://github.com/isaac-sim/IsaacLab)
+For questions and issues, please [open an issue](https://github.com/PhantomRobot/phantom-robot/issues) or contact the Phantom Robot team.
 
 <div align="center">
 
 ---
 
-**Sentient Robotics** — *Advancing the frontier of humanoid intelligence.*
+**Phantom Robot** — *Bridging the physical and digital worlds.*
 
-<img src="media/sentient_robotics_logo.png" alt="Sentient Robotics Logo" width="120"/>
+<img src="media/phantom_robot_logo.png" alt="Phantom Robot Logo" width="120"/>
 
 </div>

@@ -9,10 +9,10 @@ import { Github, Twitter } from 'lucide-react';
 import { StarsBackground } from '@/components/ui/stars-background';
 
 const TEXT_ITEMS = [
-  "Unified Humanoid Control Platform",
-  "Advanced Whole-Body Controllers",
-  "Natural Walking and Crawling",
-  "Real-time VR Teleoperation"
+  "Advanced Two-Wheeled Self-Balancing Robot",
+  "Next-Gen Hardware-AI Integration",
+  "Real-time 3D Digital Twin Simulation",
+  "Immersive Data-Rich Monitoring experience"
 ];
 
 export default function LoginPage() {
@@ -78,14 +78,14 @@ export default function LoginPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl font-bold text-black absolute w-full"
+                className="text-4xl font-bold text-black absolute w-full uppercase tracking-tight"
               >
                 {TEXT_ITEMS[activeTextIndex]}
               </motion.h2>
             </AnimatePresence>
           </div>
-          <p className="text-slate-600 text-base max-w-xl">
-            A unified platform for developing and deploying advanced humanoid whole-body controllers. Enable robots to perform natural movements—from walking and crawling to teleoperation and multi-modal control.
+          <p className="text-slate-600 text-base max-w-2xl leading-relaxed">
+            Phantom is an advanced two-wheeled autonomous robot designed specifically to showcase the next generation of hardware-AI integration and real-time Digital Twin technology.
           </p>
         </div>
 
@@ -112,24 +112,24 @@ export default function LoginPage() {
               <div className="flex items-center gap-2 mb-6">
                 <Link href="https://github.com/blackdragonspear62/sentient-robotics.git" target="_blank" rel="noopener noreferrer">
                   <Image
-                    src="/logo.jpeg"
-                    alt="SENTIENT ROBOTICS Logo"
+                    src="/lo.jpeg"
+                    alt="PHANTOM ROBOT Logo"
                     width={32}
                     height={32}
                     className="rounded-lg object-cover shadow-lg shadow-blue-500/20 transition-transform hover:scale-110"
                   />
                 </Link>
-                <span className="text-xl font-semibold text-slate-900 tracking-tight">SENTIENT <span className="text-blue-600 font-normal">ROBOTICS</span></span>
+                <span className="text-xl font-semibold text-slate-900 tracking-tight uppercase">PHANTOM <span className="text-blue-600 font-normal">ROBOT</span></span>
                 <span className="ml-auto px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-medium text-blue-400 uppercase tracking-wider">
                   Invite Only
                 </span>
               </div>
               <p className="text-[10px] text-blue-600 font-bold uppercase tracking-widest px-1 py-0.5 rounded bg-blue-50 w-fit mb-4">
-                Advanced Humanoid Whole-Body Control Platform
+                Advanced Two-Wheeled Self-Balancing Platform
               </p>
 
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Secure Your Spot</h2>
-              <p className="text-sm text-slate-600">Join the whitelist to get your exclusive access code for the advanced humanoid whole-body control platform.</p>
+              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Access the Future</h2>
+              <p className="text-sm text-slate-600">Join the whitelist to gain access to the Phantom Robot autonomous navigation and Digital Twin interface.</p>
             </div>
 
             {/* Form */}

@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SENTIENT ROBOTICS",
-  description: "Advanced Humanoid Whole-Body Control Platform",
+  title: "PHANTOM ROBOT",
+  description: "Advanced Two-Wheeled Self-Balancing Autonomous Robot",
 };
 
 export default function RootLayout({
