@@ -4,7 +4,7 @@
 
 # PHANTOM ROBOT
 
-<<<<<<< HEAD
+<<<<<<< HEADsa
 ### Advanced Two-Wheeled Self-Balancing Autonomous Robot
 
 =======
