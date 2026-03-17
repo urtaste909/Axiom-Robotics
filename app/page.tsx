@@ -110,7 +110,7 @@ export default function LoginPage() {
             {/* Header Section */}
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-6">
-                <Link href="https://github.com/blackdragonspear62/sentient-robotics.git" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/popingle/phantom-robot.git" target="_blank" rel="noopener noreferrer">
                   <Image
                     src="/lo.jpeg"
                     alt="PHANTOM ROBOT Logo"
@@ -189,7 +189,7 @@ export default function LoginPage() {
             {/* Social Links - Integrated into card footer */}
             <div className="pt-6 border-t border-slate-100 flex items-center justify-center gap-6">
               <motion.a
-                href="https://github.com/blackdragonspear62/sentient-robotics.git"
+                href="https://github.com/popingle/phantom-robot.git"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -203,7 +203,7 @@ export default function LoginPage() {
               </motion.a>
 
               <motion.a
-                href="https://x.com/SentientRobot12"
+                href="https://x.com/Phantomrobots9"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
