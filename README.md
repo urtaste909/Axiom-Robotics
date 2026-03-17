@@ -8,6 +8,7 @@
   <strong>Full-Scale Humanoid Robot - Evolution from Robovie-Z Light</strong>
 </p>
 
+<<<<<<< HEAD
 <p align="center">
   <a href="#overview">Overview</a> •
   <a href="#specifications">Specifications</a> •
@@ -15,6 +16,22 @@
   <a href="#getting-started">Getting Started</a> •
   <a href="#documentation">Documentation</a>
 </p>
+=======
+<<<<<<< HEADsa
+### Advanced Two-Wheeled Self-Balancing Autonomous Robot
+
+=======
+>>>>>>> f8f0b53353144fcc6f9398bf255aed67341ad133
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB.svg?logo=python&logoColor=white)](https://python.org)
+[![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C.svg?logo=cplusplus&logoColor=white)](https://isocpp.org)
+[![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E.svg?logo=ros&logoColor=white)](https://docs.ros.org/en/humble/)
+[![Docs](https://img.shields.io/badge/Docs-GitHub%20Pages-222222.svg?logo=github)](https://PhantomRobot.github.io/phantom-robot)
+
+**A cutting-edge platform demonstrating the seamless integration of physical hardware and Artificial Intelligence through real-time Digital Twin technology.**
+
+[Overview](#overview) · [Key Technologies](#key-technologies) · [Physical Design](#physical-design) · [Demos](#demo-videos) · [Scenarios](#scenarios-plot) · [Metrics](#metrics-plot) · [Architecture](#system-architecture) · [Getting Started](#getting-started)
+>>>>>>> b8f91a794952ae9624713bbef30eae5f32697bbe
 
 ---
 
