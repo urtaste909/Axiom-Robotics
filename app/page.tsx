@@ -85,7 +85,7 @@ export default function LoginPage() {
             </AnimatePresence>
           </div>
           <p className="text-slate-600 text-base max-w-2xl leading-relaxed">
-            Phantom is an advanced two-wheeled autonomous robot designed specifically to showcase the next generation of hardware-AI integration and real-time Digital Twin technology.
+            Duck Robots is a miniaturized version of the BDX droid, designed for agility and ease of assembly. This repository contains the hardware design (3D printable parts), simulation environments, and control software.
           </p>
         </div>
 
@@ -110,16 +110,16 @@ export default function LoginPage() {
             {/* Header Section */}
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-6">
-                <Link href="https://github.com/popingle/phantom-robot.git" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/popingle/Duck-Robots" target="_blank" rel="noopener noreferrer">
                   <Image
                     src="/lo.jpeg"
-                    alt="PHANTOM ROBOT Logo"
+                    alt="DUCK ROBOTS Logo"
                     width={32}
                     height={32}
                     className="rounded-lg object-cover shadow-lg shadow-blue-500/20 transition-transform hover:scale-110"
                   />
                 </Link>
-                <span className="text-xl font-semibold text-slate-900 tracking-tight uppercase">PHANTOM <span className="text-blue-600 font-normal">ROBOT</span></span>
+                <span className="text-xl font-semibold text-slate-900 tracking-tight uppercase">DUCK <span className="text-blue-600 font-normal">ROBOTS</span></span>
                 <span className="ml-auto px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-medium text-blue-400 uppercase tracking-wider">
                   Invite Only
                 </span>
@@ -129,7 +129,7 @@ export default function LoginPage() {
               </p>
 
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Access the Future</h2>
-              <p className="text-sm text-slate-600">Join the whitelist to gain access to the Phantom Robot autonomous navigation and Digital Twin interface.</p>
+              <p className="text-sm text-slate-600">Join the whitelist to gain access to the Duck Robots autonomous navigation and Digital Twin interface.</p>
             </div>
 
             {/* Form */}
@@ -189,7 +189,7 @@ export default function LoginPage() {
             {/* Social Links - Integrated into card footer */}
             <div className="pt-6 border-t border-slate-100 flex items-center justify-center gap-6">
               <motion.a
-                href="https://github.com/popingle/phantom-robot.git"
+                href="https://github.com/popingle/Duck-Robots"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}

@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PHANTOM ROBOT",
+  title: "DUCK ROBOTS",
   description: "Advanced Two-Wheeled Self-Balancing Autonomous Robot",
 };
 

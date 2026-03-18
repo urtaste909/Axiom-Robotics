@@ -26,7 +26,7 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB.svg?logo=python&logoColor=white)](https://python.org)
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C.svg?logo=cplusplus&logoColor=white)](https://isocpp.org)
 [![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E.svg?logo=ros&logoColor=white)](https://docs.ros.org/en/humble/)
-[![Docs](https://img.shields.io/badge/Docs-GitHub%20Pages-222222.svg?logo=github)](https://PhantomRobot.github.io/phantom-robot)
+[![Docs](https://img.shields.io/badge/Docs-GitHub%20Pages-222222.svg?logo=github)](https://popingle.github.io/Duck-Robots)
 
 **A cutting-edge platform demonstrating the seamless integration of physical hardware and Artificial Intelligence through real-time Digital Twin technology.**
 
@@ -37,7 +37,7 @@
 
 ## Overview
 
-ROBOVIE-Z Evolution is a full-scale humanoid robot development project that is an evolution of Robovie-Z Light by Vstone. This project maintains the proportions and kinematic structure of the original robot, but with a larger scale and smooth futuristic armor.
+Duck Robots is a miniaturized version of the BDX droid, designed for agility and ease of assembly. This repository contains the hardware design (3D printable parts), simulation environments, and control software.
 
 
 
@@ -321,8 +321,8 @@ ROBOVIE-Z/
 
 ```bash
 # Clone repository
-git clone https://github.com/popingle/phantom-robot.git
-cd phantom-robot
+git clone https://github.com/popingle/Duck-Robots.git
+cd Duck-Robots
 
 # Install dependencies
 pip install -r requirements.txt
@@ -375,7 +375,7 @@ python software/control/connect.py --port /dev/ttyUSB0
 - Product Page: [Vstone Robotshop](https://www.vstone.co.jp/robotshop/index.php?main_page=product_info&cPath=70_947&products_id=5393)
 
 ### Inspired By
-- [Phantom Robot](https://github.com/popingle/phantom-robot.git) - Documentation structure reference
+- [Duck Robots](https://github.com/popingle/Duck-Robots.git) - Documentation structure reference
 
 ---
 
