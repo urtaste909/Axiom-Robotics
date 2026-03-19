@@ -7,7 +7,7 @@
 =======
   <strong>Full-Scale Humanoid Robot - Evolution from Robovie-Z Light</strong>
 </p>sa
->>>>>>> 69ca6bd23cfdc7cd57b33b494a5a7a0acff7a484
+>>>>>>> 69ca6bd23cfdc7cd57b33b494a5a7a0acff7a484d
 
 ![Duck Robots Banner](media/p1.jpeg)
 
