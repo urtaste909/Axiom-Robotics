@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DUCK ROBOTS",
-  description: "Advanced Two-Wheeled Self-Balancing Autonomous Robot",
+  title: "OLAF ROBOTICS",
+  description: "Bringing an Animated Character to Life in the Physical World",
 };
 
 export default function RootLayout({

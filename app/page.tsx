@@ -9,10 +9,10 @@ import { Github, Twitter } from 'lucide-react';
 import { StarsBackground } from '@/components/ui/stars-background';
 
 const TEXT_ITEMS = [
-  "Advanced Two-Wheeled Self-Balancing Robot",
-  "Next-Gen Hardware-AI Integration",
+  "Highly Expressive Robotic Platform",
+  "Bringing Animated Characters to Life",
   "Real-time 3D Digital Twin Simulation",
-  "Immersive Data-Rich Monitoring experience"
+  "Scale-Accurate Mechanical Design"
 ];
 
 export default function LoginPage() {
@@ -85,7 +85,7 @@ export default function LoginPage() {
             </AnimatePresence>
           </div>
           <p className="text-slate-600 text-base max-w-2xl leading-relaxed">
-            Duck Robots is a miniaturized version of the BDX droid, designed for agility and ease of assembly. This repository contains the hardware design (3D printable parts), simulation environments, and control software.
+            Olaf Robotics is an open-source project dedicated to bringing an animated character to life in the physical world. Based on the Olaf character, it provides a compact, scale-accurate, and highly expressive robotic platform for researchers and hobbyists.
           </p>
         </div>
 
@@ -110,26 +110,26 @@ export default function LoginPage() {
             {/* Header Section */}
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-6">
-                <Link href="https://github.com/popingle/Duck-Robots" target="_blank" rel="noopener noreferrer">
+                <Link href="#" target="_blank" rel="noopener noreferrer">
                   <Image
-                    src="/lo.jpeg"
-                    alt="DUCK ROBOTS Logo"
+                    src="/logos.jpeg"
+                    alt="OLAF ROBOTICS Logo"
                     width={32}
                     height={32}
                     className="rounded-lg object-cover shadow-lg shadow-blue-500/20 transition-transform hover:scale-110"
                   />
                 </Link>
-                <span className="text-xl font-semibold text-slate-900 tracking-tight uppercase">DUCK <span className="text-blue-600 font-normal">ROBOTS</span></span>
+                <span className="text-xl font-semibold text-slate-900 tracking-tight uppercase">OLAF <span className="text-blue-600 font-normal">ROBOTICS</span></span>
                 <span className="ml-auto px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-medium text-blue-400 uppercase tracking-wider">
                   Invite Only
                 </span>
               </div>
               <p className="text-[10px] text-blue-600 font-bold uppercase tracking-widest px-1 py-0.5 rounded bg-blue-50 w-fit mb-4">
-                Advanced Two-Wheeled Self-Balancing Platform
+                Compact Animated Robotic Platform
               </p>
 
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Access the Future</h2>
-              <p className="text-sm text-slate-600">Join the whitelist to gain access to the Duck Robots autonomous navigation and Digital Twin interface.</p>
+              <p className="text-sm text-slate-600">Join the whitelist to gain access to the Olaf Robotics autonomous navigation and Digital Twin interface.</p>
             </div>
 
             {/* Form */}

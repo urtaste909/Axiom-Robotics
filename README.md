@@ -1,15 +1,12 @@
-# Duck Robots
+# Olaf Robotics
 
 <p align="center">
-<<<<<<< HEAD
-  <img src="docs/logo.png" width="200" alt="Duck Robots Logo">
+  <img src="docs/logo.png" width="200" alt="Olaf Robotics Logo">
 </p>
-=======
-  <strong>Full-Scale Humanoid Robot - Evolution from Robovie-Z Light</strong>
-</p>sa
->>>>>>> 69ca6bd23cfdc7cd57b33b494a5a7a0acff7a484d
-ew
-![Duck Robots Banner](media/p1.jpeg)
+<p align="center">
+  <strong>Bringing an Animated Character to Life</strong>
+</p>
+![Olaf Robotics Banner](media/p1.jpeg)
 
 <table>
   <tr>
@@ -18,7 +15,7 @@ ew
    </tr> 
 </table>
 
-**Duck Robots** is an open-source project dedicated to making a mini version of the BDX droid. Our goal is to provide a compact, accessible, and highly capable robotic platform for researchers, hobbyists, and educators.
+**Olaf Robotics** is an open-source project dedicated to bringing an animated character to life in the physical world. Our goal is to provide a compact, scale-accurate, and highly expressive robotic platform based on the Olaf character, as detailed in the research paper "Olaf: Bringing an Animated Character to Life in the Physical World".
 
 # State of sim2real
 
@@ -44,7 +41,7 @@ ew
 
 ## Overview
 
-Duck Robots is a miniaturized version of the BDX droid, designed for agility and ease of assembly. This repository contains the hardware design (3D printable parts), simulation environments, and control software.
+Olaf Robotics is an open-source project dedicated to bringing an animated character to life in the physical world. Based on the Olaf character, it provides a compact, scale-accurate, and highly expressive robotic platform for research and development.
 
 ### 🏗️ Technical Architecture
 
@@ -76,7 +73,7 @@ Our architecture is built on a modular three-layer stack to ensure seamless sim-
 
 ## Ringkasan
 
-Duck Robots adalah versi miniatur dari droid BDX, yang dirancang untuk kelincahan dan kemudahan perakitan. Repository ini berisi desain perangkat keras (bagian yang dapat dicetak 3D), lingkungan simulasi, dan perangkat lunak kontrol.
+Olaf Robotics adalah proyek sumber terbuka yang didedikasikan untuk menghidupkan karakter animasi di dunia nyata. Berdasarkan karakter Olaf, proyek ini menyediakan platform robotik yang ringkas, akurat secara skala, dan sangat ekspresif.
 
 ### 🏗️ Arsitektur Teknis
 
@@ -90,7 +87,7 @@ Arsitektur kami dibangun di atas tumpukan tiga lapis modular untuk memastikan tr
 
 ## 项目概述
 
-Duck Robots 是 BDX 机器人的小型化版本，旨在实现灵活性和易组装性。本仓库包含硬件设计（3D 打印部件）、仿真环境和控制软件。
+Olaf Robotics 是一个致力于将动画角色带入现实世界的开源项目。基于 Olaf 角色，它提供了一个紧凑、高度精确且极具表现力的机器人平台，供研究者和爱好者使用。
 
 ### 🏗️ 技术架构
 
@@ -114,10 +111,10 @@ pip install -e .
 ```
 
 ### Simulation
-We use Mujoco for simulation. You can find the robot descriptions and simulation scripts in the `duck_robots/robots` and `experiments` directories.
+We use Mujoco for simulation. You can find the robot descriptions and simulation scripts in the `olaf_robotics/robots` and `experiments` directories.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-*Making a mini version of the BDX droid.*
+*Project Goal: Bringing an Animated Character to Life.*
