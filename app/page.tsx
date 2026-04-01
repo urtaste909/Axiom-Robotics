@@ -9,10 +9,10 @@ import { Github, Twitter } from 'lucide-react';
 import { StarsBackground } from '@/components/ui/stars-background';
 
 const TEXT_ITEMS = [
-  "Highly Expressive Robotic Platform",
-  "Bringing Animated Characters to Life",
-  "Real-time 3D Digital Twin Simulation",
-  "Scale-Accurate Mechanical Design"
+  "Autonomous AI Orchestration",
+  "Seamless Agentic Workflows",
+  "Real-time Cognitive Simulation",
+  "Scalable Task Automation"
 ];
 
 export default function LoginPage() {
@@ -49,11 +49,11 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <div className="h-screen w-full flex overflow-hidden bg-white text-slate-900 relative">
+    <div className="h-screen w-full flex overflow-hidden bg-slate-950 text-slate-100 relative">
       {/* Stars Background - Global */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <StarsBackground
-          starColor="#000"
+          starColor="#fff"
           speed={0.02}
           factor={0.05}
         />
@@ -69,7 +69,7 @@ export default function LoginPage() {
         {/* Text Overlay */}
         <div className="absolute bottom-16 left-8 right-8 z-20 p-8 select-none pointer-events-none">
           {/* Added white gradient background for text readability */}
-          <div className="absolute inset-0 bg-white/60 blur-3xl -z-10 rounded-full scale-110" />
+          <div className="absolute inset-0 bg-slate-950/60 blur-3xl -z-10 rounded-full scale-110" />
           <div className="h-12 relative overflow-hidden mb-3">
             <AnimatePresence mode="wait">
               <motion.h2
@@ -78,14 +78,14 @@ export default function LoginPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl font-bold text-black absolute w-full uppercase tracking-tight"
+                className="text-4xl font-bold text-white absolute w-full uppercase tracking-tight"
               >
                 {TEXT_ITEMS[activeTextIndex]}
               </motion.h2>
             </AnimatePresence>
           </div>
-          <p className="text-slate-600 text-base max-w-2xl leading-relaxed">
-            Olaf Robotics is an open-source project dedicated to bringing an animated character to life in the physical world. Based on the Olaf character, it provides a compact, scale-accurate, and highly expressive robotic platform for researchers and hobbyists.
+          <p className="text-slate-300 text-base max-w-2xl leading-relaxed">
+            Agent Weaver is an advanced AI orchestration framework dedicated to building and managing complex multi-agent systems. It provides a robust, scalable, and highly expressive cognitive architecture for developers and enterprises.
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export default function LoginPage() {
       <div className="w-full lg:w-[30%] flex flex-col items-center justify-center relative z-20">
 
         {/* Glass Card Container - ENHANCED VISIBILITY */}
-        <div className="w-full max-w-md mx-auto p-8 rounded-2xl bg-white/40 backdrop-blur-md border border-slate-200 shadow-2xl relative overflow-hidden ring-1 ring-slate-200/50">
+        <div className="w-full max-w-md mx-auto p-8 rounded-2xl bg-slate-900/40 backdrop-blur-md border border-slate-800 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/50">
 
           {/* Very subtle noise/gradient for texture, ensuring transparency */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] to-transparent pointer-events-none" />
@@ -112,24 +112,24 @@ export default function LoginPage() {
               <div className="flex items-center gap-2 mb-6">
                 <Link href="#" target="_blank" rel="noopener noreferrer">
                   <Image
-                    src="/logos.jpeg"
-                    alt="OLAF ROBOTICS Logo"
+                    src="/logo.jpeg"
+                    alt="Agent Weaver Logo"
                     width={32}
                     height={32}
-                    className="rounded-lg object-cover shadow-lg shadow-blue-500/20 transition-transform hover:scale-110"
+                    className="rounded-lg object-cover shadow-lg shadow-purple-500/20 transition-transform hover:scale-110"
                   />
                 </Link>
-                <span className="text-xl font-semibold text-slate-900 tracking-tight uppercase">OLAF <span className="text-blue-600 font-normal">ROBOTICS</span></span>
-                <span className="ml-auto px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-medium text-blue-400 uppercase tracking-wider">
+                <span className="text-xl font-semibold text-white tracking-tight uppercase">AGENT <span className="text-purple-500 font-normal">WEAVER</span></span>
+                <span className="ml-auto px-2 py-0.5 rounded-full bg-purple-500/20 border border-purple-500/30 text-[10px] font-medium text-purple-400 uppercase tracking-wider">
                   Invite Only
                 </span>
               </div>
-              <p className="text-[10px] text-blue-600 font-bold uppercase tracking-widest px-1 py-0.5 rounded bg-blue-50 w-fit mb-4">
-                Compact Animated Robotic Platform
+              <p className="text-[10px] text-purple-400 font-bold uppercase tracking-widest px-1 py-0.5 rounded bg-purple-500/10 w-fit mb-4">
+                Intelligent Agent Orchestration
               </p>
 
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Access the Future</h2>
-              <p className="text-sm text-slate-600">Join the whitelist to gain access to the Olaf Robotics autonomous navigation and Digital Twin interface.</p>
+              <h2 className="text-2xl font-bold text-white tracking-tight">Access the Future</h2>
+              <p className="text-sm text-slate-400">Join the waitlist to gain access to the Agent Weaver autonomous orchestration and Cognitive Graph interface.</p>
             </div>
 
             {/* Form */}
@@ -141,7 +141,7 @@ export default function LoginPage() {
                     <input
                       type="text"
                       required
-                      className="halo-input block w-full rounded-lg px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:ring-0 bg-slate-50 group-focus-within:bg-slate-100 border border-slate-200 focus:border-blue-500/50 transition-all duration-300"
+                      className="halo-input block w-full rounded-lg px-4 py-3 text-white placeholder-slate-500 text-sm focus:ring-0 bg-slate-950/50 group-focus-within:bg-slate-900 border border-slate-800 focus:border-purple-500/50 transition-all duration-300"
                       placeholder="John Doe"
                     />
                   </div>
@@ -153,7 +153,7 @@ export default function LoginPage() {
                     <input
                       type="email"
                       required
-                      className="halo-input block w-full rounded-lg px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:ring-0 bg-slate-50 group-focus-within:bg-slate-100 border border-slate-200 focus:border-blue-500/50 transition-all duration-300"
+                      className="halo-input block w-full rounded-lg px-4 py-3 text-white placeholder-slate-500 text-sm focus:ring-0 bg-slate-950/50 group-focus-within:bg-slate-900 border border-slate-800 focus:border-purple-500/50 transition-all duration-300"
                       placeholder="name@company.com"
                     />
                   </div>
@@ -172,45 +172,45 @@ export default function LoginPage() {
 
               <button
                 type="submit"
-                className="shimmer-button w-full flex justify-center items-center gap-2 rounded-lg px-4 py-3 text-start font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-500/20 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 border border-blue-400/20"
+                className="shimmer-button w-full flex justify-center items-center gap-2 rounded-lg px-4 py-3 text-start font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-purple-500/25 bg-gradient-to-r from-purple-600 to-indigo-500 hover:from-purple-500 hover:to-indigo-400 border border-purple-400/20"
               >
-                <span>Join Whitelist</span>
+                <span>Join Waitlist</span>
                 <svg className="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
               </button>
             </form>
 
             <p className="text-center text-xs text-slate-500">
               Already have an invite?
-              <Link href="#" className="text-blue-400 hover:text-blue-300 ml-1 font-medium transition-colors hover:underline">
+              <Link href="#" className="text-purple-400 hover:text-purple-300 ml-1 font-medium transition-colors hover:underline">
                 Enter Access Code
               </Link>
             </p>
 
             {/* Social Links - Integrated into card footer */}
-            <div className="pt-6 border-t border-slate-100 flex items-center justify-center gap-6">
+            <div className="pt-6 border-t border-slate-800 flex items-center justify-center gap-6">
               <motion.a
-                href="https://github.com/popingle/Duck-Robots"
+                href="https://github.com/ohmyzaid/agent-weaver.git"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors group"
+                className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors group"
               >
-                  <div className="p-2 rounded-full bg-slate-50 group-hover:bg-slate-100 transition-colors">
+                <div className="p-2 rounded-full bg-slate-800 group-hover:bg-slate-700 transition-colors">
                   <Github size={18} />
                 </div>
                 <span className="text-[10px] font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">GitHub</span>
               </motion.a>
 
               <motion.a
-                href="https://x.com/DuckRobots"
+                href="https://x.com/AgentWeave80918"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors group"
+                className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors group"
               >
-                  <div className="p-2 rounded-full bg-slate-50 group-hover:bg-slate-100 transition-colors">
+                <div className="p-2 rounded-full bg-slate-800 group-hover:bg-slate-700 transition-colors">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="w-[18px] h-[18px] fill-current">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                   </svg>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --background: #020617;
+  --foreground: #f8fafc;
 }
 
 @theme inline {
@@ -13,7 +13,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-space-grotesk), sans-serif;
   overflow: hidden; /* As per the target site */
 }
 
@@ -21,25 +21,26 @@ body {
 .cursor-dot {
   width: 8px;
   height: 8px;
-  background-color: black;
+  background-color: #a855f7;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
+  box-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7;
 }
 
 .cursor-trail {
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(168, 85, 247, 0.5);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s, background-color 0.3s;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
 }
 
 /* Spline container fixes */
@@ -69,15 +70,15 @@ canvas {
 .halo-input-wrapper {
   position: relative;
   border-radius: 0.5rem; /* rounded-lg */
-  background: padding-box linear-gradient(#ffffff, #ffffff),
-              border-box linear-gradient(to right, #e2e8f0, #e2e8f0);
+  background: padding-box linear-gradient(#020617, #020617),
+              border-box linear-gradient(to right, #1e293b, #1e293b);
   border: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
 .halo-input-wrapper:focus-within {
-  background: padding-box linear-gradient(#ffffff, #ffffff),
-              border-box linear-gradient(to right, #3b82f6, #8b5cf6);
+  background: padding-box linear-gradient(#0f172a, #0f172a),
+              border-box linear-gradient(to right, #8b5cf6, #3b82f6);
   border-color: transparent;
 }
 

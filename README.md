@@ -1,12 +1,12 @@
-# Olaf Robotics
+# Agent Weaver
 
 <p align="center">
-  <img src="docs/logo.png" width="200" alt="Olaf Robotics Logo">
+  <img src="docs/logo.png" width="200" alt="Agent Weaver Logo">
 </p>
 <p align="center">
-  <strong>Bringing an Animated Character to Life</strong>
+  <strong>Intelligent Agent Orchestration</strong>
 </p>
-![Olaf Robotics Banner](media/p1.jpeg)
+![Agent Weaver Banner](media/p1.jpeg)
 
 <table>
   <tr>
@@ -15,11 +15,11 @@
    </tr> 
 </table>
 
-**Olaf Robotics** is an open-source project dedicated to bringing an animated character to life in the physical world. Our goal is to provide a compact, scale-accurate, and highly expressive robotic platform based on the Olaf character, as detailed in the research paper "Olaf: Bringing an Animated Character to Life in the Physical World".
+**Agent Weaver** is an advanced AI orchestration framework dedicated to building and managing complex multi-agent systems. Our goal is to provide a robust, scalable, and highly expressive cognitive architecture based on the Agent Weaver platform, as detailed in the research paper "Agent Weaver: Intelligent Agent Orchestration in the Digital World".
 
-# State of sim2real
+# State of Orchestration
 
-![Sim2Real Demo](media/v1.gif)
+![Orchestration Demo](media/v1.gif)
 
 <br>
 
@@ -41,22 +41,22 @@
 
 ## Overview
 
-Olaf Robotics is an open-source project dedicated to bringing an animated character to life in the physical world. Based on the Olaf character, it provides a compact, scale-accurate, and highly expressive robotic platform for research and development.
+Agent Weaver is an advanced AI orchestration framework dedicated to building and managing complex multi-agent systems. Based on the Agent Weaver architecture, it provides a robust, scalable, and highly expressive cognitive platform for research and development.
 
 ### 🏗️ Technical Architecture
 
-Our architecture is built on a modular three-layer stack to ensure seamless sim-to-real transition:
+Our architecture is built on a modular three-layer stack to ensure seamless execution:
 
 ![Technical Architecture](docs/architecture.png)
 
 1.  **Simulation Layer (Mujoco & RL)**:
     *   High-fidelity physics simulation using **MuJoCo**.
-    *   Reinforcement Learning (RL) policies trained for robust bipedal locomotion.
-    *   Domain randomization for improved sim-to-real transfer.
+    *   Reinforcement Learning (RL) policies trained for robust orchestration.
+    *   Domain randomization for improved reliability.
 2.  **Control Layer (Walk Engine & IK)**:
-    *   **Inverse Kinematics (IK)** solver for precise leg positioning.
-    *   Parametric walk engine for stable gait generation.
-    *   PID-based feedback loops for real-time balance correction.
+    *   **Inverse Kinematics (IK)** solver for precise positioning.
+    *   Parametric node engine for stable graph generation.
+    *   PID-based feedback loops for real-time error correction.
 3.  **Hardware Layer (Embedded)**:
     *   **Raspberry Pi Zero 2W** as the primary compute unit.
     *   High-torque micro servos for joint actuation.
@@ -73,28 +73,28 @@ Our architecture is built on a modular three-layer stack to ensure seamless sim-
 
 ## Ringkasan
 
-Olaf Robotics adalah proyek sumber terbuka yang didedikasikan untuk menghidupkan karakter animasi di dunia nyata. Berdasarkan karakter Olaf, proyek ini menyediakan platform robotik yang ringkas, akurat secara skala, dan sangat ekspresif.
+Agent Weaver adalah kerangka kerja orkestrasi AI canggih yang didedikasikan untuk membangun dan mengelola sistem multi-agen yang kompleks. Berdasarkan arsitektur Agent Weaver, proyek ini menyediakan platform kognitif yang kuat, terukur, dan sangat ekspresif.
 
 ### 🏗️ Arsitektur Teknis
 
-Arsitektur kami dibangun di atas tumpukan tiga lapis modular untuk memastikan transisi sim-to-real yang mulus:
+Arsitektur kami dibangun di atas tumpukan tiga lapis modular untuk memastikan eksekusi yang mulus:
 
-1.  **Lapisan Simulasi (Mujoco & RL)**: Simulasi fisika fidelitas tinggi menggunakan MuJoCo dan kebijakan Reinforcement Learning untuk lokomosi bipedal yang tangguh.
-2.  **Lapisan Kontrol (Walk Engine & IK)**: Solver Kinematika Invers (IK) untuk pemosisian kaki yang presisi dan mesin jalan parametrik.
+1.  **Lapisan Simulasi (Mujoco & RL)**: Simulasi fisika fidelitas tinggi menggunakan MuJoCo dan kebijakan Reinforcement Learning untuk orkestrasi yang tangguh.
+2.  **Lapisan Kontrol (Node Engine & IK)**: Solver Kinematika Invers (IK) untuk pemosisian yang presisi dan mesin grafik parametrik.
 3.  **Lapisan Perangkat Keras (Embedded)**: Raspberry Pi Zero 2W sebagai unit komputasi utama dengan aktuasi servo mikro torsi tinggi.
 
 ---
 
 ## 项目概述
 
-Olaf Robotics 是一个致力于将动画角色带入现实世界的开源项目。基于 Olaf 角色，它提供了一个紧凑、高度精确且极具表现力的机器人平台，供研究者和爱好者使用。
+Agent Weaver 是一个致力于构建和管理复杂多智能体系统的高级 AI 编排框架。基于 Agent Weaver 架构，它提供了一个强大、可扩展且极具表现力的认知平台，供研究者和开发者使用。
 
 ### 🏗️ 技术架构
 
-我们的架构基于模块化的三层堆栈构建，以确保无缝的仿真到现实（sim-to-real）转换：
+我们的架构基于模块化的三层堆栈构建，以确保无缝执行：
 
-1.  **仿真层 (Mujoco & RL)**：使用 MuJoCo 进行高保真物理仿真，并训练强化学习 (RL) 策略以实现稳健的双足运动。
-2.  **控制层 (Walk Engine & IK)**：用于精确腿部定位的反向运动学 (IK) 求解器和参数化步行引擎。
+1.  **仿真层 (Mujoco & RL)**：使用 MuJoCo 进行高保真物理仿真，并训练强化学习 (RL) 策略以实现稳健的编排。
+2.  **控制层 (Node Engine & IK)**：用于精确定位的反向运动学 (IK) 求解器和参数化图形引擎。
 3.  **硬件层 (嵌入式)**：以 Raspberry Pi Zero 2W 为核心计算单元，配合高扭矩微型舵机进行关节驱动。
 
 ---
@@ -111,10 +111,10 @@ pip install -e .
 ```
 
 ### Simulation
-We use Mujoco for simulation. You can find the robot descriptions and simulation scripts in the `olaf_robotics/robots` and `experiments` directories.
+We use Mujoco for simulation. You can find the descriptions and simulation scripts in the `agent_weaver/tests` and `experiments` directories.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-*Project Goal: Bringing an Animated Character to Life.*
+*Project Goal: Intelligent Agent Orchestration in the Digital World.*
