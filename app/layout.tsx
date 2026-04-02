@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AGENT WEAVER",
-  description: "Advanced AI Framework for Orchestrating Multi-Agent Systems",
+  title: "ArmSentientRobot",
+  description: "A quadruped robot platform with intelligent perception and adaptive locomotion.",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.className} antialiased`}>
+      <body className={`${outfit.className} antialiased`}>
         {children}
       </body>
     </html>
