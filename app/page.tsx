@@ -173,7 +173,7 @@ export default function LandingPage() {
 
               <div className="pt-6 border-t border-slate-100 flex items-center justify-center gap-6">
                 <motion.a
-                  href="https://github.com/ohmyzaid/agent-weaver.git"
+                  href="https://github.com/ohmyzaid/ArmSentientRobot.git"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -184,6 +184,22 @@ export default function LandingPage() {
                     <Github size={16} />
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-widest">Source</span>
+                </motion.a>
+
+                <motion.a
+                  href="https://x.com/armsentient?s=21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 text-slate-400 hover:text-slate-900 transition-colors group"
+                >
+                  <div className="p-2 rounded-full bg-slate-50 border border-slate-200 group-hover:bg-slate-100 transition-colors">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="w-4 h-4 fill-current">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest">Twitter</span>
                 </motion.a>
               </div>
             </div>
