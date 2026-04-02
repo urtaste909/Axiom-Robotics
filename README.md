@@ -1,6 +1,50 @@
 # ArmSentientRobot
 
+<<<<<<< HEAD
 **A quadruped robot platform with intelligent perception and adaptive locomotion.**
+=======
+\
+=======
+# Olaf Robotics
+das
+>>>>>>> 105492324703b01d7c2c9728978b79364fdd1145
+<p align="center">
+  <img src="docs/logo.png" width="200" alt="Agent Weaver Logo">
+</p>
+<p align="center">
+  <strong>Intelligent Agent Orchestration</strong>
+</p>
+![Agent Weaver Banner](media/p1.jpeg)
+
+<table>
+  <tr>
+    <td> <img src="media/p2.jpeg" alt="2" width="300px" ></td>
+    <td> <img src="media/p3.jpeg" alt="3" width="300px" ></td>
+   </tr> 
+</table>
+
+**Agent Weaver** is an advanced AI orchestration framework dedicated to building and managing complex multi-agent systems. Our goal is to provide a robust, scalable, and highly expressive cognitive architecture based on the Agent Weaver platform, as detailed in the research paper "Agent Weaver: Intelligent Agent Orchestration in the Digital World".
+
+# State of Orchestration
+
+![Orchestration Demo](media/v1.gif)
+
+<br>
+
+<table>
+  <tr>
+    <td> <img src="media/p4.jpeg" alt="4" width="300px" ></td>
+    <td> <img src="media/p5.jpeg" alt="5" width="300px" ></td>
+   </tr> 
+</table>
+---
+
+## 🌐 Multilingual Documentation / 文档 / Dokumentasi
+
+- [English](#overview)
+- [Bahasa Indonesia](#ringkasan)
+- [中文 (Chinese)](#项目概述)
+>>>>>>> efb77682244284f97b0070f0503ec8d10e3991cd
 
 ---
 
