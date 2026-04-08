@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
-  title: "ArmSentientRobot",
-  description: "A quadruped robot platform with intelligent perception and adaptive locomotion.",
+  title: "Strat Robotics",
+  description: "Autonomous bipedal robot platform with intelligent perception and adaptive locomotion.",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} antialiased`}>
+      <body className={`${montserrat.className} antialiased`}>
         {children}
       </body>
     </html>

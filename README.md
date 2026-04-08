@@ -1,390 +1,257 @@
-# ArmSentientRobot
+# Strat Robotics
 
-<<<<<<< HEAD
-**A quadruped robot platform with intelligent perception and adaptive locomotion.**
-=======
-\
-=======
-# Olaf Robotics
-das
->>>>>>> 105492324703b01d7c2c9728978b79364fdd1145
 <p align="center">
-  <img src="docs/logo.png" width="200" alt="Agent Weaver Logo">
+  <img src="media/banner.jpeg" alt="banner">
 </p>
+
 <p align="center">
-  <strong>Intelligent Agent Orchestration</strong>
+  <strong>Autonomous Bipedal Robot Platform with Reinforcement Learning</strong>
 </p>
-![Agent Weaver Banner](media/p1.jpeg)
 
-
-
-<table>
-  <tr>
-    <td> <img src="media/p2.jpeg" alt="2" width="300px" ></td>
-    <td> <img src="media/p3.jpeg" alt="3" width="300px" ></td>
-   </tr> 
-</table>
-
-**Agent Weaver** is an advanced AI orchestration framework dedicated to building and managing complex multi-agent systems. Our goal is to provide a robust, scalable, and highly expressive cognitive architecture based on the Agent Weaver platform, as detailed in the research paper "Agent Weaver: Intelligent Agent Orchestration in the Digital World".
-
-# State of Orchestration
-
-![Orchestration Demo](media/v1.gif)
-
-<br>
-
-<table>
-  <tr>
-    <td> <img src="media/p4.jpeg" alt="4" width="300px" ></td>
-    <td> <img src="media/p5.jpeg" alt="5" width="300px" ></td>
-   </tr> 
-</table>
----
-
-## 🌐 Multilingual Documentation / 文档 / Dokumentasi
-
-- [English](#overview)
-- [Bahasa Indonesia](#ringkasan)
-- [中文 (Chinese)](#项目概述)
->>>>>>> efb77682244284f97b0070f0503ec8d10e3991cd
+<p align="center">
+  <a href="https://discord.gg/UtJZsgfQGe">
+    <img src="https://img.shields.io/badge/Discord-Join-7289da?style=flat-square&logo=discord" alt="Discord">
+  </a>
+  <img src="https://img.shields.io/badge/Python-3.9+-3776ab?style=flat-square&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/MuJoCo-Simulation-00a0a0?style=flat-square" alt="MuJoCo">
+  <img src="https://img.shields.io/badge/RL-PPO/SAC-ff6b6b?style=flat-square" alt="RL">
+</p>
 
 ---
 
-## System Architecture
+## Overview
 
-The ArmSentientRobot implements a **four-layer hierarchical control architecture** combining cloud AI reasoning, reinforcement learning, real-time motor control, and physical hardware.
+Strat Robotics is an open-source autonomous bipedal robot platform inspired by the iconic BDX droid from Disney. Standing at approximately 42 centimeters tall with legs extended, this project demonstrates the intersection of mechanical design, embedded systems, and reinforcement learning.
 
-![System Architecture](imgs/layer-architecture.png)
+### Key Features
 
-### Control Loop Architecture
-
-![Control Loop](imgs/control-loop.png)
-
-### Full Pipeline Architecture
-
-![Full Pipeline](imgs/full-pipeline.png)
-
-### Layer Descriptions
-
-| Layer | Technology | Function |
-|-------|-----------|----------|
-| **Cognitive** | Claude API (Cloud) | Mission planning, terrain analysis, NL commands |
-| **Learning** | PPO/SAC (Edge/Sim) | Adaptive gait policies, sim-to-real transfer |
-| **Control** | STM32F103C8 | IK solving, PID control, 50Hz servo loop |
-| **Hardware** | Physical | 12× MG92R servos, LiPo power, 3D chassis |
+- **Autonomous Walking**: PPO/SAC-trained policies for stable bipedal locomotion
+- **Sim-to-Real Transfer**: Physics-accurate MuJoCo simulation with real-world deployment
+- **ESP32-C3 Control**: Low-latency embedded motor control
+- **ONNX Policy Export**: Runtime-agnostic neural network inference
+- **Expression System**: LED eyes, speaker, and microphone integration
 
 ---
 
-## Hardware Architecture
+## Visual Overview
 
-![Hardware Architecture](imgs/hardware-architecture.png)
-
-### Power System
-
-![Power System](imgs/power-system.png)
-
-### Control Loop Timing (50Hz)
-
-![Control Timing](imgs/control-timing.png)
+<p align="center">
+  <img src="media/strat.jpeg" alt="Strat Robotics Bipedal" width="48%">
+  <img src="media/srat1.jpeg" alt="Strat Robotics Detailed" width="48%">
+</p>
 
 ---
 
-## Inverse Kinematics
+## Robot Specifications
 
-![IK Solver](imgs/ik-solver.png)
-
-### Joint Configuration
-
-| Joint | Range | Control |
-|-------|-------|---------|
-| Coxa (hip) | ±45° | Rotation in XY plane |
-| Femur (thigh) | -90° to +45° | Leg elevation |
-| Tibia (shin) | -145° to +45° | Foot positioning |
-
-### IK Equations
-
-For each leg, given target foot position (x, y, z) relative to hip:
-
-```c
-// Femur angle (rotation in XY plane)
-θ_femur = atan2(y, x)
-
-// Tibia angle (lever arm)
-L = sqrt(x² + y²)
-L1 = sqrt((L - a)² + z²)
-θ_tibia = atan2(z, L - a) - acos((b² + c² - L1²) / (2·b·c))
-
-// Coxa angle (elevation)
-θ_coxa = acos((b² + L1² - c²) / (2·b·L1))
-θ_coxa = θ_tibia + θ_coxa
-```
-
-Where:
-- `a` = Coxa length (35mm)
-- `b` = Femur length (65mm)
-- `c` = Tibia length (95mm)
-
----
-
-## Gait Patterns
-
-![Gait Patterns](imgs/gait-patterns.png)
-
-### Gait Types
-
-| Gait | Description | Speed | Stability |
-|------|-------------|-------|-----------|
-| **Trot** | Diagonal leg pairs move together | Fast | Medium |
-| **Wave** | Sequential leg lifting | Slow | High |
-| **Tripod** | 3 legs support, 3 moving | Balanced | Medium |
-| **Crawl** | Continuous ground contact | Very Slow | Maximum |
-
----
-
-## Training Progress
-
-![Training Progress](imgs/training-progress.png)
-
-### Sim-to-Real Transfer
-
-![Sim-to-Real](imgs/sim-to-real.png)
-
----
-
-## Reinforcement Learning
-
-### Training Configuration
-
-```python
-PPO_CONFIG = {
-    "learning_rate": 3e-4,
-    "gamma": 0.99,
-    "lam": 0.95,
-    "clip_ratio": 0.2,
-    "epochs": 10,
-    "batch_size": 4096,
-}
-
-SAC_CONFIG = {
-    "algorithm": "SAC",
-    "learning_rate": 3e-4,
-    "gamma": 0.99,
-    "tau": 0.005,
-    "alpha": 0.2,
-}
-```
-
-### Reward Function
-
-| Component | Weight | Description |
-|-----------|--------|-------------|
-| Forward Progress | +1.0 | X-velocity reward |
-| Energy Efficiency | -1e-3 | Torque usage penalty |
-| Stability | +0.5 | Height maintenance |
-| Smoothness | -0.01 | Jerk minimization |
-
----
-
-## System Specifications
-
-### Hardware Components
-
-| Component | Specification |
+| Parameter | Specification |
 |-----------|---------------|
-| **Main Controller** | STM32F103C8 (72MHz ARM Cortex-M3) |
-| **Servo Driver** | PCA9685 (I2C) + MG92R high-torque servos |
-| **IMU** | MPU6050 (6-axis accelerometer/gyroscope) |
-| **Voice Module** | LD3320 + STC11L08XE (ASR) |
-| **Communication** | USART2 (9600 8N1) / BLE (optional) |
-| **DOF** | 12 joints (3 per leg × 4 legs) |
-| **Power** | 5-6V external for servos, separate from MCU |
-
-### Physical Dimensions
-
-```
-Robot Topology:
-        Forward (X+)
-              ↑
-              │
-    ┌─────────┼─────────┐
-    │   RL    │   RR    │   ← Right side
-    │  [L4]   │  [L3]   │
-────┼─────────┼─────────┼─────▶ Left (Y+)
-    │  [L1]   │  [L2]   │
-    │   FL    │   FR    │   ← Left side
-    └─────────┼─────────┘
-              │
-              ↓
-           Origin
-```
-
-### Leg Kinematics
-
-| Segment | Length | Mass |
-|---------|--------|------|
-| Coxa | 35mm | 30g |
-| Femur | 65mm | 50g |
-| Tibia | 95mm | 40g |
-
----
-
-## Control Commands
-
-The quadruped receives single-byte ASCII commands via **USART2** (9600 8N1):
-
-| Command | Action | Gait |
-|---------|--------|------|
-| `0` | Stand / Stop | Return to current height |
-| `1` | Walk Forward | Trot gait |
-| `2` | Walk Backward | Trot gait |
-| `3` | Turn Left | Trot gait |
-| `4` | Turn Right | Trot gait |
-| `5` | Strafe Left | Omnidirectional |
-| `6` | Strafe Right | Omnidirectional |
-| `7` | Low Posture | Decrease height |
-| `8` | High Posture | Increase height |
-| `9` | Crawl Gait | Wave gait |
-| `a` | Pickup Sequence | Arm/gripper |
-| `b` | LED Chase | Status animation |
-| `c` | Handshake | Social gesture |
-| `d` | Reset | Return to default |
-
-**Protocol**: Frame format `[CMD]` — brackets are ignored, middle byte is executed.
+| Height | ~42 cm (legs extended) |
+| DOF | 12 (6 per leg) |
+| Actuators | Feetech STS/STSeries servos |
+| Onboard Computer | Raspberry Pi Zero 2W |
+| Microcontroller | ESP32-C3 |
+| Total Cost | < $400 |
 
 ---
 
 ## Project Structure
 
 ```
-ArmSentientRobot/
-├── Hardware/
-│   ├── PCB/              # Circuit schematics (PDF)
-│   └── STL/             # 3D printable models
-│       ├── Body/        # Main chassis STLs
-│       └── Arm/         # Gripper/arm STLs
-│
-├── arm_sentient_core/   # Main quadruped controller
-│   ├── HARDWARE/        # Peripheral drivers
-│   │   └── DOG/         # Quadruped kinematics (dog.c)
-│   ├── USER/            # User application
-│   └── OBJ/             # Compiled output (TIMER.hex)
-│
-├── voice_relay/         # Voice relay + LED indicator
-│   └── OBJ/             # Compiled output
-│
-├── arm_control/         # Posture/key control
-│   └── OBJ/             # Compiled output
-│
-├── voice_ld3320/        # LD3320 voice recognition
-│   ├── keil4 APP/       # Keil C51 project
-│   └── obj/             # V07A.hex
-│
-├── docs/
-│   └── mujoco_urdf_spec.md       # RL training spec
-│
-├── imgs/
-│   ├── architecture-layers.png   # 4-layer system
-│   ├── layer-architecture.png    # Full layer view
-│   ├── control-loop.png          # Control loop
-│   ├── full-pipeline.png         # AI pipeline
-│   ├── hardware-architecture.png  # Hardware block
-│   ├── power-system.png          # Power diagram
-│   ├── control-timing.png        # 50Hz timing
-│   ├── ik-solver.png            # IK flow
-│   ├── gait-patterns.png         # Gait types
-│   ├── training-progress.png      # RL training
-│   └── sim-to-real.png           # Sim-to-real
-│
-└── assets/
-    └── Dog1.jpg         # Robot image
+Strat-Robotics/
+├── strat_bdx/              # Robot CAD and URDF models
+│   ├── cad/                # OnShape exports
+│   ├── urdf/               # Robot description
+│   └── meshes/             # STL/OBJ meshes
+├── experiments/            # RL training and experiments
+│   ├── mujoco/             # MuJoCo simulation environment
+│   ├── RL/                 # Training scripts (PPO/SAC)
+│   └── real_robot/          # Real-world testing
+├── docs/                   # Documentation
+│   ├── assembly_guide.md   # Assembly instructions
+│   ├── print_guide.md      # 3D printing settings
+│   └── sim2real.md         # Sim-to-real transfer guide
+├── print/                  # 3D printable STL files
+├── BEST_WALK_ONNX.onnx     # Pre-trained walking policy
+└── BEST_WALK_ONNX_2.onnx   # Alternative walking policy
 ```
 
 ---
 
-## Assembly Guide
+## Quick Start
 
-### 3D Printing
+### 1. Hardware Assembly
 
-1. **Body Parts** (`Hardware/STL/Body/`):
-   - Main chassis: PLA+ recommended, 20% infill
-   - Leg brackets: PLA, 15% infill
+Follow the [Assembly Guide](docs/assembly_guide.md) for complete build instructions.
 
-2. **Arm/Gripper** (`Hardware/STL/Arm/`):
-   - Servo mounts: PLA, 20% infill
-   - Gripper fingers: TPU for flexibility
+### 2. Software Setup
 
-### Calibration Steps
-
-1. **Servo Center**: Set all servos to 1500μs (90°) before assembly
-2. **Offset Calibration**: Adjust `datatemp[12]` in `dog.c`
-3. **Height Tuning**: Modify `HIGH` parameter for desired standing height
-4. **Gait Parameters**: Tune `Ts/Ts2`, `Bj/Bj2` for step cycle
-
----
-
-## Building & Flashing
-
-### Method A: Pre-built HEX (Recommended)
-
-| Firmware | File | Target |
-|----------|------|--------|
-| Main Controller | `arm_sentient_core/OBJ/TIMER.hex` | STM32F103C8 |
-| Voice Relay | `voice_relay/OBJ/Template.hex` | STM32F103ZE |
-| Posture Control | `arm_control/OBJ/Template.hex` | STM32F103ZE |
-| Voice Recognition | `voice_ld3320/obj/V07A.hex` | STC11L08XE |
-
-### Method B: Build from Source
-
-**STM32 Projects** (Keil MDK-ARM):
 ```bash
-# Open project in Keil
-# arm_sentient_core/USER/TIMER.uvprojx
-# Build and flash via ST-LINK
+# Clone the repository
+git clone https://github.com/yourusername/Strat-Robotics.git
+cd Strat-Robotics
+
+# Install dependencies
+pip install -e .
 ```
 
-**Voice Recognition** (Keil C51):
+### 3. Run Pre-trained Policy
+
 ```bash
-# Open: voice_ld3320/keil4 APP/YS-V0.7.uvproj
-# Flash via STC ISP tool
+python experiments/mujoco/v2_rl_walk_mujoco.py --onnx_model_path BEST_WALK_ONNX_2.onnx
 ```
 
----
+### 4. Train Your Own Policy
 
-## Power Requirements
-
-⚠️ **Critical**: Use **separate power supplies** for servos and MCU.
-
-| Component | Voltage | Current |
-|-----------|---------|---------|
-| STM32 MCU | 3.3V / 5V | < 100mA |
-| 12× MG92R | 5-6V | Up to 5A peak |
-| LD3320 | 3.3V | < 50mA |
-| MPU6050 | 3.3V | < 5mA |
-
-**Recommended**: MP1584 buck converter or dedicated 5V/6A supply for servos.
+See [Sim-to-Real Guide](docs/sim2real.md) for training instructions.
 
 ---
 
-## Contributing
+## Reinforcement Learning
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing`)
-3. Commit changes with clear messages
-4. Push to branch and open Pull Request
+### Training Pipeline
+
+```
+┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+│  Reference  │────▶│   MuJoCo     │────▶│   ONNX      │
+│   Motion    │     │  Simulation  │     │   Policy    │
+└─────────────┘     └──────────────┘     └─────────────┘
+                           │                    │
+                           ▼                    ▼
+                    ┌──────────────┐     ┌─────────────┐
+                    │  PPO/SAC     │────▶│   ESP32-C3  │
+                    │  Training    │     │   Control   │
+                    └──────────────┘     └─────────────┘
+```
+
+### Supported Algorithms
+
+- **PPO** (Proximal Policy Optimization)
+- **SAC** (Soft Actor-Critic)
+
+### Reward Design
+
+Our multi-objective reward function balances locomotion quality, gait symmetry, thermal safety, and energy efficiency across walk and run modes. Trained with PPO in MuJoCo with 4096 parallel environments and domain randomization (mass ±10%, friction ±20%, servo delay ±5ms).
+
+<p align="center">
+  <img src="docs/figures/reward_design_table.png" alt="Reward Design Table" width="100%">
+</p>
+
+### Training Performance
+
+Training reward components over 5B environment steps. Total reward converges as position tracking and velocity tracking improve, while energy penalty provides constant regularization critical for STS3215 servo longevity and 3S LiPo battery life.
+
+<p align="center">
+  <img src="docs/figures/training_performance.png" alt="Training Performance" width="100%">
+</p>
+
+### Thermal-Aware Control
+
+The Feetech STS3215 servos generate significant heat during sustained walking, especially in hip actuators carrying the full upper-body load. With no active cooling on a sub-$400 platform, we incorporate servo temperature as a policy input and add thermal penalty rewards. The thermal-aware policy reduces torque² by ~49% at the cost of ~31% higher tracking error, keeping all servos safely below T_max = 80°C.
+
+<p align="center">
+  <img src="docs/figures/thermal_aware_rl.png" alt="Thermal-Aware RL Comparison" width="100%">
+</p>
 
 ---
 
-## License
+## Embedded Runtime
 
-MIT License — See [LICENSE](LICENSE) file for details.
+The onboard runtime handles:
+- Motor control via ESP32-C3
+- Neural network inference on Raspberry Pi Zero 2W
+- Sensor data processing
+- Communication with simulation
+
+**Runtime Repository**: [Strat Robotics Runtime](https://github.com/apirrone/Strat_Robotics_Runtime)
+
+---
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Assembly Guide](docs/assembly_guide.md) | Complete assembly instructions |
+| [Print Guide](docs/print_guide.md) | 3D printing settings and STL files |
+| [Motor Configuration](docs/configure_motors.md) | Feetech servo setup |
+| [Sim-to-Real Guide](docs/sim2real.md) | Training and deployment pipeline |
+
+---
+
+## Bill of Materials
+
+| Component | Quantity | Est. Cost |
+|-----------|----------|-----------|
+| Feetech STS3215 Servo | 12 | $180 |
+| ESP32-C3 DevKit | 1 | $5 |
+| Raspberry Pi Zero 2W | 1 | $25 |
+| 3S LiPo Battery | 1 | $20 |
+| Buck Converter | 2 | $10 |
+| M3 Hardware | ~100 | $15 |
+| 3D Printed Parts | - | ~$50 |
+
+**Full BOM**: [Google Sheets](https://docs.google.com/spreadsheets/d/1gq4iWWHEJVgAA_eemkTEsshXqrYlFxXAPwO515KpCJc/edit)
+
+---
+
+## Sim-to-Real Progress
+
+### Thermal Model Validation
+
+We validate our first-order thermal actuator model (Ṫ = −α(T − T_ambient) + βτ²) against physical STS3215 hip servo thermistor measurements during 10-minute continuous walking tests. The MuJoCo simulation tracks ground truth with RMSE of 2.3°C, confirming reliable thermal prediction for policy deployment.
+
+<p align="center">
+  <img src="docs/figures/sim_to_real_transfer.png" alt="Sim-to-Real Temperature Validation" width="100%">
+</p>
+
+### Walking Policy Demo
+
+https://github.com/user-attachments/assets/58721d0f-2f95-4088-8900-a5d02f41bba7
+
+### Real Robot Testing
+
+https://github.com/user-attachments/assets/4129974a-9d97-4651-9474-c078043bb182
+
+https://github.com/user-attachments/assets/a0afcd38-15d8-40c6-8171-a619107406b8
+
+---
+
+## Community
+
+Join our Discord server for help and updates:
+
+<a href="https://discord.gg/UtJZsgfQGe">
+  <img src="https://discord.com/assets/cb0f61d4ca23b79a89f78c8a37a64426.png" alt="Discord" width="30"> Join Strat Robotics Community
+</a>
+
+### Community Builds
+
+![Community Collage](https://github.com/user-attachments/assets/e240c06e-769f-4c87-b65f-189a442cf1e9)
+
+---
+
+## References
+
+- **MuJoCo Playground**: [Open Duck Playground](https://github.com/apirrone/Open_Duck_Playground)
+- **Reference Motion Generator**: [Open Duck Reference Motion](https://github.com/apirrone/Open_Duck_reference_motion_generator)
+- **Actuator Identification**: [BAM by Rhoban](https://github.com/Rhoban/bam)
+- **CAD Model**: [OnShape](https://cad.onshape.com/documents/64074dfcfa379b37d8a47762/w/3650ab4221e215a4f65eb7fe/e/0505c262d882183a25049d05)
 
 ---
 
 ## Acknowledgments
 
-Based on the open-source 12-DOF quadruped tutorial:
-[bilibili.com/video/BV1Th411y7AT](https://www.bilibili.com/video/BV1Th411y7AT/)
+Special thanks to:
+
+- **HuggingFace** for sponsoring this project
+- **Pollen Robotics** for open-source robotics tools
+- **Rhoban** for actuator modeling tools
 
 ---
 
-*Bringing intelligent robotics to the desktop.*
+## License
+
+MIT License - See [LICENSE](LICENSE) for details.
+
+---
+
