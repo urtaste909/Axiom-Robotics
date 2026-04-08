@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate publication-quality matplotlib figures for Strat-Robotics"""
+"""Generate publication-quality matplotlib figures for Axiom Robotics"""
 
 import numpy as np
 import matplotlib
@@ -41,7 +41,7 @@ def generate_reward_design_table():
 
     # Title
     fig.suptitle('Reward Design', fontweight='bold', fontsize=26, x=0.08, ha='left', y=0.98)
-    ax.text(0.5, 0.98, 'Reward Component Weights — Strat-BDX Policy',
+    ax.text(0.5, 0.98, 'Reward Component Weights — Axiom Robotics-BDX Policy',
             transform=ax.transAxes, fontsize=14, ha='center', va='top')
 
     # Left pair data (10 rows)
@@ -71,9 +71,6 @@ def generate_reward_design_table():
         ('Joint acc.', '$2.5 \\times 10^{-6}$'),
         ('Slip penalty', '0.0 / 5.0'),
     ]
-
-    # Combine data
-    all_data = list(zip(left_data, right_data))
 
     # Headers
     headers = ['Reward Name', 'Walk/Run', 'Reward Name', 'Walk/Run']
@@ -121,7 +118,7 @@ def generate_reward_design_table():
     table.properties()['col_widths'] = [0.25, 0.12, 0.25, 0.12]
 
     plt.tight_layout()
-    plt.savefig('/workspace/Strat-Robotics/docs/figures/reward_design_table.png',
+    plt.savefig('/workspace/Axiom-Robotics/docs/figures/reward_design_table.png',
                 dpi=300, bbox_inches='tight', facecolor='white', pad_inches=0.3)
     plt.close()
     print("Generated: reward_design_table.png")
@@ -151,7 +148,7 @@ def generate_thermal_aware_rl():
     ax1.set_ylim(35, 120)
     ax1.legend(loc='upper right', framealpha=0.9, edgecolor='#cccccc', fancybox=False)
     ax1.tick_params(axis='x', labelbottom=False)
-    ax1.text(0.5, 0.95, 'Thermal-Aware RL Comparison — Strat-BDX Policy',
+    ax1.text(0.5, 0.95, 'Thermal-Aware RL Comparison — Axiom Robotics-BDX Policy',
              transform=ax1.transAxes, fontsize=14, ha='center', va='top')
 
     # Subplot 2: Joint Error
@@ -182,7 +179,7 @@ def generate_thermal_aware_rl():
     ax3.set_ylim(0, 10)
     ax3.legend(loc='upper right', framealpha=0.9, edgecolor='#cccccc', fancybox=False)
 
-    plt.savefig('/workspace/Strat-Robotics/docs/figures/thermal_aware_rl.png',
+    plt.savefig('/workspace/Axiom-Robotics/docs/figures/thermal_aware_rl.png',
                 dpi=300, bbox_inches='tight', facecolor='white', pad_inches=0.3)
     plt.close()
     print("Generated: thermal_aware_rl.png")
@@ -193,7 +190,7 @@ def generate_training_performance():
     fig, ax = plt.subplots(figsize=(14, 7))
 
     fig.suptitle('Training Performance', fontweight='bold', fontsize=26, x=0.08, ha='left', y=0.98)
-    ax.text(0.5, 0.98, 'Training Reward Components — Strat-BDX Policy',
+    ax.text(0.5, 0.98, 'Training Reward Components — Axiom Robotics-BDX Policy',
             transform=ax.transAxes, fontsize=14, ha='center', va='top')
 
     x = np.linspace(0, 5000, 500)
@@ -228,7 +225,7 @@ def generate_training_performance():
     ax.legend(loc='lower right', framealpha=0.9, edgecolor='#cccccc', fancybox=False)
 
     plt.tight_layout()
-    plt.savefig('/workspace/Strat-Robotics/docs/figures/training_performance.png',
+    plt.savefig('/workspace/Axiom-Robotics/docs/figures/training_performance.png',
                 dpi=300, bbox_inches='tight', facecolor='white', pad_inches=0.3)
     plt.close()
     print("Generated: training_performance.png")
@@ -239,7 +236,7 @@ def generate_sim_to_real_transfer():
     fig, ax = plt.subplots(figsize=(14, 8))
 
     fig.suptitle('Sim-to-Real Transfer', fontweight='bold', fontsize=26, x=0.08, ha='left', y=0.98)
-    ax.text(0.5, 0.95, 'Sim-to-Real Temperature Validation — Strat-BDX',
+    ax.text(0.5, 0.95, 'Sim-to-Real Temperature Validation — Axiom Robotics-BDX',
             transform=ax.transAxes, fontsize=14, ha='center', va='top')
 
     t = np.linspace(0, 600, 1200)
@@ -274,19 +271,19 @@ def generate_sim_to_real_transfer():
              'Sim-to-real temperature model validation on Feetech STS3215 hip servos.\n'
              'Simulated thermal profile closely matches physical measurements (RMSE: 2.3°C)\n'
              'across varied locomotion patterns including walking, standing idle, and acceleration.\n'
-             'Thermal model: Ṫ = −α(T − T_ambient) + βτ², validated on Strat-BDX hip actuators\n'
+             'Thermal model: T = -alpha(T - T_ambient) + beta*tau^2, validated on Axiom Robotics-BDX hip actuators\n'
              'over 10-minute continuous operation cycles with 3S LiPo power supply.',
              fontsize=10, ha='left', va='top', style='italic', color='#333333')
 
     plt.tight_layout()
-    plt.savefig('/workspace/Strat-Robotics/docs/figures/sim_to_real_transfer.png',
+    plt.savefig('/workspace/Axiom-Robotics/docs/figures/sim_to_real_transfer.png',
                 dpi=300, bbox_inches='tight', facecolor='white', pad_inches=0.5)
     plt.close()
     print("Generated: sim_to_real_transfer.png")
 
 
 if __name__ == '__main__':
-    print("Generating figures for Strat-Robotics...")
+    print("Generating figures for Axiom Robotics...")
     generate_reward_design_table()
     generate_thermal_aware_rl()
     generate_training_performance()
