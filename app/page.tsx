@@ -173,7 +173,7 @@ export default function LandingPage() {
 
               <div className="pt-6 border-t border-[#222] flex items-center justify-center gap-6">
                 <motion.a
-                  href="https://github.com/strat-robotics/strat.git"
+                  href="https://github.com/ohmyzaid/Strat-Robotics.git"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -184,6 +184,22 @@ export default function LandingPage() {
                     <Github size={16} />
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-widest">Source</span>
+                </motion.a>
+
+                <motion.a
+                  href="https://x.com/stratrobotics"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
+                >
+                  <div className="p-2 rounded-full bg-[#111] border border-[#333] group-hover:bg-[#222] transition-colors">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="w-4 h-4 fill-current">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest">Twitter</span>
                 </motion.a>
               </div>
             </div>
@@ -217,7 +233,7 @@ export default function LandingPage() {
                 <p className="text-sm text-slate-400 mb-8 max-w-sm">Multi-objective reward function balancing locomotion quality, thermal safety, and energy efficiency.</p>
                 <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-black border border-[#222] flex items-center justify-center group-hover:border-[#444] transition-colors">
                   <Image
-                    src="/docs/figures/reward_design_table.png"
+                    src="/media/strat.jpeg"
                     alt="Control Loop Architecture"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -231,12 +247,13 @@ export default function LandingPage() {
               <div className="bg-black p-6 md:p-8 rounded-2xl shadow-2xl relative group overflow-hidden border border-[#222]">
                 <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent opacity-50 pointer-events-none" />
                 <div className="relative z-10">
-                  <h3 className="text-xl font-medium tracking-tight mb-2 text-white">Locomotion Video Demo</h3>
-                  <p className="text-sm text-slate-400 mb-8 max-w-sm">Walk testing showcasing stable sim-to-real transferred policies.</p>
+                  <h3 className="text-xl font-medium tracking-tight mb-1 text-white">Control Loop Architecture</h3>
+                  <h4 className="text-sm font-semibold tracking-wide text-emerald-400 mb-2">Locomotion Video Demo</h4>
+                  <p className="text-sm text-slate-400 mb-6 max-w-sm">Walk testing showcasing stable sim-to-real transferred policies.</p>
                   
                   <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-[#0A0A0A] border border-[#333] flex items-center justify-center group-hover:border-emerald-500/50 transition-colors">
                     <video 
-                      src="/media/WhatsApp Video 2026-04-07 at 10.34.44 PM.mp4" 
+                      src="/media/mov.mp4" 
                       className="w-full h-full object-cover"
                       playsInline 
                       autoPlay 

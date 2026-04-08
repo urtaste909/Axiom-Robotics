@@ -1,5 +1,6 @@
 # Strat Robotics
 
+
 <p align="center">
   <img src="media/banner.jpeg" alt="banner">
 </p>
