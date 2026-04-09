@@ -61,7 +61,11 @@ Axiom Robotics is an open-source autonomous bipedal robot platform inspired by t
 Through PPO/SAC training in MuJoCo, Axiom Robotics analyzes optimal bipedal gaits and executes commands over a 50Hz ESP32-C3 loop directly to Feetech STS3215 servos.
 
 <p align="center">
-  <img src="media/strat.jpeg" alt="Control Loop Architecture" width="100%">
+  
+
+https://github.com/user-attachments/assets/cc1e9b97-1f30-419c-b715-2c127bc85ca1
+
+
 </p>
 
 ---
