@@ -1,7 +1,8 @@
 # Axiom Robotics
 
 <p align="center">
-  <img src="media/banner.jpeg" alt="banner">
+![WhatsApp Image 2026-04-09 at 4 21 03 AM](https://github.com/user-attachments/assets/c8eb4945-806a-4317-8221-6c3f638f1f03)
+
 </p>
 
 <p align="center">
