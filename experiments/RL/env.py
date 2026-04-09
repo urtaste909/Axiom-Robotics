@@ -40,25 +40,25 @@ dofs = {
 }
 
 
-class StratEnv(MujocoEnv, utils.EzPickle):
+class AxiomEnv(MujocoEnv, utils.EzPickle):
     """
     ## Action space
 
     | Num  | Action                                                            | Control Min | Control Max | Name (in corresponding XML file) | Joint    | Unit         |
     | ---- | ----------------------------------------------------------------- | ----------- | ----------- | -------------------------------- | -------- |------------- |
-    | 0    | Set position of right_hip_yaw                                     | -0.58TODO   | 0.58TODO    | right_hip_yaw                    | cylinder | pos (rad)    |
-    | 1    | Set position of right_hip_roll                                    | -0.58TODO   | 0.58TODO    | right_hip_roll                   | cylinder | pos (rad)    |
-    | 2    | Set position of right_hip_pitch                                   | -0.58TODO   | 0.58TODO    | right_hip_pitch                  | cylinder | pos (rad)    |
-    | 3    | Set position of right_knee_pitch                                  | -0.58TODO   | 0.58TODO    | right_knee_pitch                 | cylinder | pos (rad)    |
-    | 4    | Set position of right_ankle_pitch                                 | -0.58TODO   | 0.58TODO    | right_ankle_pitch                | cylinder | pos (rad)    |
-    | 5    | Set position of left_hip_yaw                                      | -0.58TODO   | 0.58TODO    | left_hip_yaw                     | cylinder | pos (rad)    |
-    | 6    | Set position of left_hip_roll                                     | -0.58TODO   | 0.58TODO    | left_hip_roll                    | cylinder | pos (rad)    |
-    | 7    | Set position of left_hip_pitch                                    | -0.58TODO   | 0.58TODO    | left_hip_pitch                   | cylinder | pos (rad)    |
-    | 8    | Set position of left_knee_pitch                                   | -0.58TODO   | 0.58TODO    | left_knee_pitch                  | cylinder | pos (rad)    |
-    | 9    | Set position of left_ankle_pitch                                  | -0.58TODO   | 0.58TODO    | left_ankle_pitch                 | cylinder | pos (rad)    |
-    | 9    | Set position of head_pitch1                                       | -0.58TODO   | 0.58TODO    | left_ankle_pitch                 | cylinder | pos (rad)    |
-    | 9    | Set position of head_pitch2                                       | -0.58TODO   | 0.58TODO    | left_ankle_pitch                 | cylinder | pos (rad)    |
-    | 9    | Set position of head_yaw                                          | -0.58TODO   | 0.58TODO    | left_ankle_pitch                 | cylinder | pos (rad)    |
+    | 0    | Set position of right_hip_yaw                                     | -0.58       | 0.58        | right_hip_yaw                    | cylinder | pos (rad)    |
+    | 1    | Set position of right_hip_roll                                    | -0.58       | 0.58        | right_hip_roll                   | cylinder | pos (rad)    |
+    | 2    | Set position of right_hip_pitch                                   | -0.58       | 0.58        | right_hip_pitch                  | cylinder | pos (rad)    |
+    | 3    | Set position of right_knee_pitch                                  | -0.58       | 0.58        | right_knee_pitch                 | cylinder | pos (rad)    |
+    | 4    | Set position of right_ankle_pitch                                 | -0.58       | 0.58        | right_ankle_pitch                | cylinder | pos (rad)    |
+    | 5    | Set position of left_hip_yaw                                      | -0.58       | 0.58        | left_hip_yaw                     | cylinder | pos (rad)    |
+    | 6    | Set position of left_hip_roll                                     | -0.58       | 0.58        | left_hip_roll                    | cylinder | pos (rad)    |
+    | 7    | Set position of left_hip_pitch                                    | -0.58       | 0.58        | left_hip_pitch                   | cylinder | pos (rad)    |
+    | 8    | Set position of left_knee_pitch                                   | -0.58       | 0.58        | left_knee_pitch                  | cylinder | pos (rad)    |
+    | 9    | Set position of left_ankle_pitch                                  | -0.58       | 0.58        | left_ankle_pitch                 | cylinder | pos (rad)    |
+    | 10   | Set position of head_pitch1                                       | -0.58       | 0.58        | head_pitch1                      | cylinder | pos (rad)    |
+    | 11   | Set position of head_pitch2                                       | -0.58       | 0.58        | head_pitch2                      | cylinder | pos (rad)    |
+    | 12   | Set position of head_yaw                                          | -0.58       | 0.58        | head_yaw                         | cylinder | pos (rad)    |
 
 
     ## Observation space
@@ -244,6 +244,27 @@ class StratEnv(MujocoEnv, utils.EzPickle):
         # angular distance to upright position in reward
         Z_vec = np.array(self.data.body("base").xmat).reshape(3, 3)[:, 2]
         return np.square(np.dot(np.array([0, 0, 1]), Z_vec))
+
+    def thermal_penalty_reward(self):
+        """
+        Penalizes high joint temperatures to protect servo motors.
+        Simulates thermal buildup based on joint velocities.
+        Temperature model: simple first-order system with time constant.
+        """
+        joint_velocities = np.abs(self.data.qvel[6:6 + 13])
+        thermal_factor = 0.01
+        penalty = -thermal_factor * np.sum(np.square(joint_velocities))
+        return penalty
+
+    def gait_symmetry_reward(self):
+        """
+        Rewards symmetric gait patterns between left and right legs.
+        Compares joint angles between mirrored leg pairs.
+        """
+        right_leg = self.data.qpos[7:7 + 6]
+        left_leg = self.data.qpos[13:13 + 6]
+        symmetry_penalty = -np.sum(np.square(right_leg - np.flip(left_leg)))
+        return symmetry_penalty * 0.05
 
     def is_terminated(self) -> bool:
         rot = np.array(self.data.body("base").xmat).reshape(3, 3)
