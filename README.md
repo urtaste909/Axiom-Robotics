@@ -1,7 +1,7 @@
 # Axiom Robotics
 
 <p align="center">
-
+  <img src="media/banner.jpeg" alt="Axiom Robotics Banner" width="100%">
 </p>
 
 <p align="center">
@@ -33,6 +33,20 @@ Axiom Robotics is an open-source autonomous bipedal robot platform inspired by t
 
 ---
 
+## In Action
+
+<p align="center">
+  <img src="media/m1.gif" alt="Axiom Robotics Walking Demo" width="100%">
+</p>
+
+<p align="center">
+  <video src="media/m2.mp4" width="100%" controls autoplay muted loop>
+    <a href="media/m2.mp4">▶ Watch locomotion demo video</a>
+  </video>
+</p>
+
+---
+
 ## Visual Overview
 
 <p align="center">
@@ -40,17 +54,14 @@ Axiom Robotics is an open-source autonomous bipedal robot platform inspired by t
   <img src="media/IMG_5187.jpg" alt="Axiom Robotics Detailed" width="48%">
 </p>
 
-### Robot in Action
+## System Architecture
+
+**Bridging the gap between *RL* and *Physical Actuation*.**
+
+Through PPO/SAC training in MuJoCo, Axiom Robotics analyzes optimal bipedal gaits and executes commands over a 50Hz ESP32-C3 loop directly to Feetech STS3215 servos.
 
 <p align="center">
-  <img src="media/zijcdz.jpg" alt="Robot Demo" width="48%">
-  <img src="media/Screenshot_20260409_094729_Chrome.jpg" alt="Dashboard" width="48%">
-</p>
-
-### Additional Views
-
-<p align="center">
-  <img src="media/Screenshot_20260409_094743_Chrome.jpg" alt="Robot Walking" width="80%">
+  <img src="media/strat.jpeg" alt="Control Loop Architecture" width="100%">
 </p>
 
 ---
