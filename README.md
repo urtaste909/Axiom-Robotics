@@ -36,8 +36,21 @@ Axiom Robotics is an open-source autonomous bipedal robot platform inspired by t
 ## Visual Overview
 
 <p align="center">
-  <img src="media/strat.jpeg" alt="Axiom Robotics Bipedal" width="48%">
-  <img src="media/srat1.jpeg" alt="Axiom Robotics Detailed" width="48%">
+  <img src="media/IMG_6646.jpg" alt="Axiom Robotics Bipedal" width="48%">
+  <img src="media/IMG_5187.jpg" alt="Axiom Robotics Detailed" width="48%">
+</p>
+
+### Robot in Action
+
+<p align="center">
+  <img src="media/zijcdz.jpg" alt="Robot Demo" width="48%">
+  <img src="media/Screenshot_20260409_094729_Chrome.jpg" alt="Dashboard" width="48%">
+</p>
+
+### Additional Views
+
+<p align="center">
+  <img src="media/Screenshot_20260409_094743_Chrome.jpg" alt="Robot Walking" width="80%">
 </p>
 
 ---
