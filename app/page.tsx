@@ -71,7 +71,7 @@ export default function LandingPage() {
           {/* Text Overlay */}
           <div className="absolute top-16 left-12 z-20 select-none pointer-events-none">
             <h1 className="text-6xl font-light tracking-tighter text-white mb-2">
-              Strat<span className="font-semibold">Robotics</span>
+              Axiom<span className="font-semibold">Robotics</span>
             </h1>
             <p className="text-slate-400 uppercase tracking-[0.3em] font-medium text-xs mb-8">
               Autonomous Bipedal Robot Platform
@@ -114,7 +114,7 @@ export default function LandingPage() {
               {/* Header Section */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-xl font-medium text-white tracking-tight">Strat Robotics</span>
+                  <span className="text-xl font-medium text-white tracking-tight">Axiom Robotics</span>
                 </div>
                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest px-2 py-1 rounded-sm border border-[#333] bg-[#111] w-fit mb-4">
                   Sim-to-Real Transfer
@@ -134,7 +134,7 @@ export default function LandingPage() {
                         type="text"
                         required
                         className="halo-input block w-full rounded px-4 py-3 text-white placeholder-slate-600 text-sm focus:ring-0 bg-[#111] group-focus-within:bg-[#050505] border border-[#333] focus:border-slate-500 transition-all duration-300"
-                        placeholder="e.g. Strat-Core"
+                        placeholder="e.g. Axiom-Core"
                       />
                     </div>
                   </div>
@@ -173,7 +173,7 @@ export default function LandingPage() {
 
               <div className="pt-6 border-t border-[#222] flex items-center justify-center gap-6">
                 <motion.a
-                  href="https://github.com/ohmyzaid/Strat-Robotics.git"
+                  href="https://github.com/urtaste909/Axiom-Robotics.git"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -187,7 +187,7 @@ export default function LandingPage() {
                 </motion.a>
 
                 <motion.a
-                  href="https://x.com/stratrobotics"
+                  href="https://x.com/Axiomrobotics1"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -218,7 +218,7 @@ export default function LandingPage() {
               Bridging the gap between <span className="font-normal italic">RL</span> and <span className="font-normal italic">Physical Actuation</span>.
             </h2>
             <p className="max-w-2xl mx-auto text-slate-400 text-base md:text-lg">
-              Through PPO/SAC training in MuJoCo, Strat Robotics analyzes optimal bipedal gaits and executes commands over a 50Hz ESP32-C3 loop directly to Feetech STS3215 servos.
+              Through PPO/SAC training in MuJoCo, Axiom Robotics analyzes optimal bipedal gaits and executes commands over a 50Hz ESP32-C3 loop directly to Feetech STS3215 servos.
             </p>
           </div>
 
@@ -233,8 +233,8 @@ export default function LandingPage() {
                 <p className="text-sm text-slate-400 mb-8 max-w-sm">Multi-objective reward function balancing locomotion quality, thermal safety, and energy efficiency.</p>
                 <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-black border border-[#222] flex items-center justify-center group-hover:border-[#444] transition-colors">
                   <Image
-                    src="/media/strat.jpeg"
-                    alt="Control Loop Architecture"
+                    src="/axiompic.jpeg"
+                    alt="Reward Design - Multi-objective reward function"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />

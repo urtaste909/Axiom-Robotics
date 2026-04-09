@@ -1,8 +1,7 @@
-# Strat Robotics
-
+`# Axiom Robotics
 
 <p align="center">
-  <img src="media/banner.jpeg" alt="banner">
+  <img src="media/banner.jpeg" alt="Axiom Robotics Banner" width="100%">
 </p>
 
 <p align="center">
@@ -22,7 +21,7 @@
 
 ## Overview
 
-Strat Robotics is an open-source autonomous bipedal robot platform inspired by the iconic BDX droid from Disney. Standing at approximately 42 centimeters tall with legs extended, this project demonstrates the intersection of mechanical design, embedded systems, and reinforcement learning.
+Axiom Robotics is an open-source autonomous bipedal robot platform inspired by the iconic BDX droid from Disney. Standing at approximately 42 centimeters tall with legs extended, this project demonstrates the intersection of mechanical design, embedded systems, and reinforcement learning.
 
 ### Key Features
 
@@ -34,11 +33,35 @@ Strat Robotics is an open-source autonomous bipedal robot platform inspired by t
 
 ---
 
+## In Action
+
+<p align="center">
+  <img src="media/m1.gif" alt="Axiom Robotics Walking Demo" width="100%">
+</p>
+
+<p align="center">
+  <video src="media/m2.mp4" width="100%" controls autoplay muted loop>
+    <a href="media/m2.mp4">▶ Watch locomotion demo video</a>
+  </video>
+</p>
+
+---
+
 ## Visual Overview
 
 <p align="center">
-  <img src="media/strat.jpeg" alt="Strat Robotics Bipedal" width="48%">
-  <img src="media/srat1.jpeg" alt="Strat Robotics Detailed" width="48%">
+  <img src="media/IMG_6646.jpg" alt="Axiom Robotics Bipedal" width="48%">
+  <img src="media/IMG_5187.jpg" alt="Axiom Robotics Detailed" width="48%">
+</p>
+
+## System Architecture
+
+**Bridging the gap between *RL* and *Physical Actuation*.**
+
+Through PPO/SAC training in MuJoCo, Axiom Robotics analyzes optimal bipedal gaits and executes commands over a 50Hz ESP32-C3 loop directly to Feetech STS3215 servos.
+
+<p align="center">
+  <img src="media/strat.jpeg" alt="Control Loop Architecture" width="100%">
 </p>
 
 ---
@@ -59,8 +82,8 @@ Strat Robotics is an open-source autonomous bipedal robot platform inspired by t
 ## Project Structure
 
 ```
-Strat-Robotics/
-├── strat_bdx/              # Robot CAD and URDF models
+Axiom-Robotics/
+├── axiom_bdx/              # Robot CAD and URDF models
 │   ├── cad/                # OnShape exports
 │   ├── urdf/               # Robot description
 │   └── meshes/             # STL/OBJ meshes
@@ -89,8 +112,8 @@ Follow the [Assembly Guide](docs/assembly_guide.md) for complete build instructi
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Strat-Robotics.git
-cd Strat-Robotics
+git clone https://github.com/yourusername/Axiom-Robotics.git
+cd Axiom-Robotics
 
 # Install dependencies
 pip install -e .
@@ -164,7 +187,7 @@ The onboard runtime handles:
 - Sensor data processing
 - Communication with simulation
 
-**Runtime Repository**: [Strat Robotics Runtime](https://github.com/apirrone/Strat_Robotics_Runtime)
+**Runtime Repository**: [Axiom Robotics Runtime](https://github.com/apirrone/Axiom_Robotics_Runtime)
 
 ---
 
@@ -205,38 +228,6 @@ We validate our first-order thermal actuator model (Ṫ = −α(T − T_ambient)
   <img src="docs/figures/sim_to_real_transfer.png" alt="Sim-to-Real Temperature Validation" width="100%">
 </p>
 
-### Walking Policy Demo
-
-https://github.com/user-attachments/assets/58721d0f-2f95-4088-8900-a5d02f41bba7
-
-### Real Robot Testing
-
-https://github.com/user-attachments/assets/4129974a-9d97-4651-9474-c078043bb182
-
-https://github.com/user-attachments/assets/a0afcd38-15d8-40c6-8171-a619107406b8
-
----
-
-## Community
-
-Join our Discord server for help and updates:
-
-<a href="https://discord.gg/UtJZsgfQGe">
-  <img src="https://discord.com/assets/cb0f61d4ca23b79a89f78c8a37a64426.png" alt="Discord" width="30"> Join Strat Robotics Community
-</a>
-
-### Community Builds
-
-![Community Collage](https://github.com/user-attachments/assets/e240c06e-769f-4c87-b65f-189a442cf1e9)
-
----
-
-## References
-
-- **MuJoCo Playground**: [Open Duck Playground](https://github.com/apirrone/Open_Duck_Playground)
-- **Reference Motion Generator**: [Open Duck Reference Motion](https://github.com/apirrone/Open_Duck_reference_motion_generator)
-- **Actuator Identification**: [BAM by Rhoban](https://github.com/Rhoban/bam)
-- **CAD Model**: [OnShape](https://cad.onshape.com/documents/64074dfcfa379b37d8a47762/w/3650ab4221e215a4f65eb7fe/e/0505c262d882183a25049d05)
 
 ---
 
@@ -256,3 +247,4 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 
+`
