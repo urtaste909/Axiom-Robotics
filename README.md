@@ -1,7 +1,7 @@
 # Axiom Robotics
 
 <p align="center">
-  <img src="media/banner.jpeg" alt="Axiom Robotics Banner" width="100%">
+  <img src="media/rbanner.jpeg" alt="Axiom Robotics Banner" width="100%">
 </p>
 
 <p align="center">
